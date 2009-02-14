@@ -1,0 +1,2 @@
+Set up Junit (2/8/09)
+junitCreator -overwrite -junit "/Users/adambossy/Downloads/eclipse/plugins/org.junit_3.8.2.v20080602-1318/junit.jar" -module com.healthySoftware.fitnessUI -eclipse fitnessUI com.healthySoftware.client.fitnessUITest

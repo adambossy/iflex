@@ -1,0 +1,26 @@
+### MuscleGroup.objects.all()
+    #"""
+    '[
+      {	"pk": 1,
+      	"model": "exercises.musclegroup",
+	"fields":
+		{"body_segment": 0,
+		 "name": "Quadriceps"
+		}	 
+      },
+      { "pk": 2, "model": "exercises.musclegroup", "fields": {"body_segment": 0, "name": "Hamstrings"}}, {"pk": 3, "model": "exercises.musclegroup", "fields": {"body_segment": 0, "name": "Calves"}}, {"pk": 4, "model": "exercises.musclegroup", "fields": {"body_segment": 1, "name": "Traps"}}, {"pk": 5, "model": "exercises.musclegroup", "fields": {"body_segment": 1, "name": "Lower Back"}}]' """
+
+
+### ExerciseType.objects.all()
+[
+ { "pk": 1,
+   "model": "exercises.exercisetype",
+   "fields":
+       {"muscle_groups": [1, 3, 5],
+        "type": 0,
+	"name": "Barbell Squat",
+	"created_by": 1,
+	"time_created": "2008-11-25 16:18:38"
+       }
+ },
+ {"pk": 2, "model": "exercises.exercisetype", "fields": {"muscle_groups": [1], "type": 0, "name": "Barbell Squat, Breathing", "created_by": 1, "time_created": "2008-11-25 16:19:16"}}, {"pk": 3, "model": "exercises.exercisetype", "fields": {"muscle_groups": [2, 4, 5], "type": 0, "name": "Deadlift", "created_by": 1, "time_created": "2008-11-25 16:19:40"}}, {"pk": 4, "model": "exercises.exercisetype", "fields": {"muscle_groups": [2], "type": 0, "name": "Good Morning", "created_by": 1, "time_created": "2008-11-25 16:21:44"}}, {"pk": 5, "model": "exercises.exercisetype", "fields": {"muscle_groups": [2], "type": 0, "name": "Good Morning, Rounded Back", "created_by": 1, "time_created": "2008-11-25 16:21:59"}}]'

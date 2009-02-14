@@ -1,0 +1,111 @@
+<html>
+
+<head>
+  <title>Add a Journal Entry</title>
+  <link type="text/css" rel="stylesheet" href="/media/css/global.css" />
+  <style type-"text/css">
+    .item_container {
+      clear: both;
+      background-color: #0f0; /* green */
+    }
+
+    .labels_container {
+      background-color: #f0f; /* purple */
+      float: left;
+      width: 96px;
+      padding: 8px;
+    }
+
+    .text_boxes_container {
+      background-color: #0ff; /* turqoise */
+      float: right;
+      width: 384px;
+      padding: 8px;
+    }
+
+    .errors_container {
+      padding: 8px;
+    }
+
+    .errors_container ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    /* need to inherit width and float from text_boxes
+       container, but also need to make it unique for
+       addPictureEntry javascript function. */
+    #pics_container { 
+      background-color: #000; /* black */
+      float: right;
+      padding: 8px;
+    }
+
+    .pic_file_upload_element {
+      clear: both;
+    }
+
+    #add_picture {
+      float: right;
+      clear: both;
+    }
+
+    .clear {
+      clear: both;
+    }
+  </style>
+  <script type="text/javascript">
+    function addPictureEntry () {
+        /* TODO: Create a valid way of retaining current file values when user adds new
+                 uploadboxes using DOM. */
+        var pics_container = document.getElementById('pics_container');
+
+        var div_node = document.createElement('div');
+        div_node.className = "pic_file_upload_element";
+
+        var id_pic = document.createElement('input');
+        id_pic.type = "file";
+        id_pic.className = "pic";
+        id_pic.id = "id_pic";
+
+        pics_container.appendChild (div_node);
+
+        pics_container.style.backgroundColor = "#faf";
+
+    }
+  </script>
+</head>
+
+<body>
+
+{% if feedback %}
+  <p>{{ feedback }}</p>
+{% endif %}
+
+<div id="wrap">
+{% if journal_form %}
+
+  <form action="/journal/add/{{ member.id }}/" method="post">
+
+  <table border="0" cellpadding="4">
+    {{ journal_form.as_table }}
+  </table>
+
+<!--  <input type="hidden" name="member" id="id_member" value="{{ member.id }}" /> -->
+
+  <input type="Submit" value="Go!" />
+  </form>
+
+{% else %}
+
+  <p>Some kind of problem occurred. Check journal_form for populated data.</p>
+
+{% endif %}
+
+<p><a href="/journal/{{ member.id }}/">Back to journal entries.</a></p>
+
+</div>
+
+</body>
+</html>

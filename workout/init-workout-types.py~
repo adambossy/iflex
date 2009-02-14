@@ -1,0 +1,3 @@
+from fitness.workout.models import *
+
+# [<CardioType: 1, Run>, <CardioType: 2, Walk>, <CardioType: 3, Jog>, <CardioType: 4, Swim>, <CardioType: 5, Bike>]

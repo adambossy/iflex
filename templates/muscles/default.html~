@@ -1,0 +1,50 @@
+<html>
+
+<head>
+  <title>Add a muscle or muscle group</title>
+</head>
+
+<body>
+
+  {% if feedback %}
+  <p>{{ feedback }}</p>
+  {% endif %}
+
+  <form action="/muscles/add/" method="post">
+
+  <table border="0" cellpadding="4">
+    {{ muscle_entity_form.as_table }}
+  </table>
+
+  <input type="Submit" value="Go!" />
+
+  </form>
+
+  <hr />
+
+  {% if muscle_entity_list %}
+    <ul>
+    {% for muscle_entity in muscle_entity_list %}
+      <li>
+	<div style="align: left">
+	  <p>
+	    <strong>{{ muscle_entity.name }}</strong>
+	    [
+	    {{ muscle_entity.muscle_entity_group.name }}&nbsp;
+	    ]
+	    <!-- Turn this into a POST form submittal -->
+	    [<a href="/muscles/delete/{{ muscle_entity.id }}/">X</a>]
+	  </p>
+	</div>
+      </li>
+      <hr noshade/>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No muscles or muscle groups are available.</p>
+  {% endif %}
+
+
+</body>
+
+</html>

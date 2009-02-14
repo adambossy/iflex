@@ -1,0 +1,14 @@
+<table border="0" cellpadding="4">
+  <tr>
+    <th>
+      After: 
+    </th>
+    <td>
+      <select name="collection" id="id_collection">
+		<option value="" selected="selected">---------</option>
+		{% for workout_template in workout_template_list %}
+			<option value="{{ workout_template.id }}">{{ workout_template.name}}</option>
+		{% endfor %}
+      </select>
+    </td>
+  </tr>

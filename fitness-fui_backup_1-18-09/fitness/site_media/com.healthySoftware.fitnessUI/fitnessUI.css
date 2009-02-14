@@ -1,0 +1,156 @@
+/** General */
+body {
+/*	margin: 1em;	 */
+}
+
+.header {
+	margin-bottom: 1em;
+}
+
+/** Main */
+DIV.main-panel {
+	background: #F8F8F8; /* light gray */
+	border: 1px solid blue;
+}
+
+.tab-container {
+	margin: 0;
+	padding: 0;	
+}
+
+.build-tab {
+	padding: 0;
+	margin: 0;
+}
+
+/** Error Panel */
+.error-console {
+	background: #F8F8F8; /* light gray */
+	border: 1px solid blue;
+}
+
+/** Superclass Behavior panel */
+.muscle-group-selector-panel,
+.exercise-selector-container {
+	background-color: #E8EEF7;
+	border: 1px solid #87B3FF;
+/*	margin-top: 1em;
+	margin-left: 1em;
+	margin-bottom: 0.2em;
+	padding: 0.2em 0.1em; */
+}
+
+.muscle-group-selector-panel .gwt-RadioButton {
+	cursor: pointer;
+}
+
+/** Muscle Group Selection Panel */
+.muscle-group-selector-panel {
+	width: 150px;
+}
+
+/** Exercise Group Selection Panel */
+.exercise-selector-container {
+	width: 100%;
+}
+
+.exercise-selector-panel {
+/*	width: 270px; */
+	width: 100%;
+	border: 5px solid #000; /*#87B3FF;*/
+}
+
+.exercise-selector-container, 
+.exercise-selector-panel-element,
+.exercise-selector-panel-heading {
+/*  padding: 0.1em 0.1em 0 0.1em;
+  margin: 0.1em 0.1em 0 0.1em; */
+/*  width: 100%; */
+  border: 1px solid blue;
+}
+
+.exercise-selector-panel-heading {
+  background-color: #87B3FF; /* bright blue */
+}
+
+.exercise-selector-panel-element {
+  	background-color: #B387FF; /* purple */
+}
+
+.exercise-selector-panel-element-label {
+/*	width: 230px; */
+/*	border: 1px solid black; */
+}
+
+.exercise-selector-panel-element-add,
+.exercise-selector-panel-element-move {
+/*	border: 1px solid black; */
+}
+
+.exercise-selector-panel-element-add {
+/*	width: 16px; Hard-coded into ExerciseItem.java */
+}
+
+.exercise-selector-panel-element-move {
+	height: 16px;
+}
+
+/** My Workout builder panel */
+.workout-builder-panel {
+/*	width: 270px; */
+	width: 100%;
+	background-color: #E8EEF7;
+	border: 1px solid #87B3FF;
+}
+
+.workout-builder-panel-reps {
+	margin: 0 0.1em;
+}
+
+.workout-builder-panel-reps {
+	width: 4em;
+}
+
+.workout-builder-panel-tempo,
+.workout-builder-panel-rest {
+	width: 5em; 
+	margin: 0 0.1em;
+}
+
+
+.workout-builder-panel-element,
+.workout-builder-panel-heading {
+/*	padding: 0.1em 0.1em 0 0.1em;
+	margin: 0.1em 0.1em 0 0.1em; */
+	border: 1px solid blue;
+}
+
+.workout-builder-panel-heading {
+	background-color: #87B3FF; /* bright blue */
+}
+
+.workout-builder-panel-element {
+	width: 100%;
+  	background-color: #B387FF; /* purple */
+}
+
+.workout-builder-panel-element-label {
+	width: 100%;
+/*	min-width: 200px; */
+/*	width: 230px; */
+}
+
+.workout-builder-panel-placeholder {
+	width: 100%;
+}
+
+/** Print button */
+/* TODO: Change to superclass element that all control panel elements inherit from */
+.print-button {
+}
+
+/** Glass panel */
+.yanel-GlassPanel { 
+ 	background-color: black; 
+    filter:alpha(opacity=50);-moz-opacity:.50;opacity:.50; 
+ } 

@@ -1,0 +1,73 @@
+from django.db import models
+
+from fitness.members.models import *
+from fitness.muscles.models import *
+
+# Create your models here.
+
+# #class CardioType (models.Model): # A reference table for types of exercise (run, biceps curl, bike, etc.)
+# class MuscleGroup (models.Model):
+
+# #    LOWER_BODY = (
+# #        ('0', 'False'),
+# #        ('1', 'True'),
+# #        )
+
+# #    lower_body = models.IntegerField(max_length=1, choices=LOWER_BODY)
+
+# #    UPPER_BODY = (
+# #        ('0', 'False'),
+# #        ('1', 'True'),
+# #        )
+
+# #    upper_body = models.IntegerField(max_length=1, choices=UPPER_BODY)
+
+#     BODY_SEGMENT_CHOICES = (
+#         ('0', 'Lower Body'),
+#         ('1', 'Upper Body'),
+#         )
+
+#     body_segment = models.IntegerField(max_length=1, choices=BODY_SEGMENT_CHOICES)
+
+#     name = models.CharField(max_length=64)
+
+#     def __unicode__(self):
+#         return (str(self.id) + ', ' + self.name + ', ' +
+#                 str(self.body_segment) + '\n')
+
+class ExerciseType (models.Model): # A reference table for types of exercise (run, biceps curl, bike, etc.)
+
+    # 0, lift type, 1, cardio type
+    TYPE_CHOICES = (
+        ('0', 'lift_type'),
+        ('1', 'cardio_type'),
+    )
+
+    type = models.IntegerField(max_length=1, choices=TYPE_CHOICES)
+
+    name = models.CharField(max_length=64)
+
+    muscle_groups = models.ManyToManyField(MuscleEntity)
+
+    created_by = models.ForeignKey(Member)
+
+    time_created = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        # TODO: Figure out a way to cleanly format these damn django toString methods with newlines
+        s = (str(self.id) + ', ' + str(self.type) + ', ' + self.name + ', ' + str(self.muscle_groups))
+        for muscle_group in self.muscle_groups.all():
+            s += ('\n ' + str(muscle_group))
+        return (s + '\n')
+
+
+#class LiftType (models.Model): # A reference table for types of exercise (run, biceps curl, bike, etc.)
+
+#    type = models.CharField(max_length=64)
+
+#    created_by = models.ForeignKey(Member)
+
+#    time_created = models.DateTimeField(auto_now_add=True)
+
+#    def __str__(self):
+#        return (str(self.id) + ', ' + self.type)

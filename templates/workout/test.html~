@@ -1,0 +1,16 @@
+<html>
+
+<head>
+  <title>GWT + Django Test</title>
+  <script language='javscript' src='site_media.fitnessUI.src.com.google.gwt.fitnessui.fitnessUI.nocache.js'></script>
+<head>
+
+<body>
+
+This is a test for member {{ member_id }}.
+
+
+
+</body>
+
+</html>

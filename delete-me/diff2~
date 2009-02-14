@@ -1,0 +1,179 @@
+
+[
+    {
+        "pk": 4, 
+        "model": "template_editor.lifttemplate", 
+        "fields": {
+            "rest": "120-180", 
+            "type": {
+                "pk": 1, 
+                "model": "exercises.exercisetype", 
+                "fields": {
+                    "name": "Barbell Bench Press", 
+                    "parent": null, 
+                    "type": 0, 
+                    "primary_muscle": 3, 
+                    "created_by": 1, 
+                    "time_created": "2008-12-14 16:51:49", 
+                    "secondary_muscle": null, 
+                    "muscle_entities": [
+                        3, 
+                        6, 
+                        29
+                    ], 
+                    "LiftTemplate": [
+                        {
+                            "pk": 4, 
+                            "model": "template_editor.lifttemplate", 
+                            "fields": {
+                                "rest": "120-180", 
+                                "type": 1, 
+                                "exercise_template": 4, 
+                                "workout_template": 2
+                            }
+                        }
+                    ]
+                }
+            }, 
+            "exercise_template": 4, 
+            "workout_template": 2
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "template_editor.lifttemplate", 
+        "fields": {
+            "rest": "60-120", 
+            "type": {
+                "pk": 2, 
+                "model": "exercises.exercisetype", 
+                "fields": {
+                    "name": "Barbell Bench Press, Incline", 
+                    "parent": 1, 
+                    "type": 0, 
+                    "primary_muscle": 3, 
+                    "created_by": 1, 
+                    "time_created": "2008-12-14 17:20:45", 
+                    "secondary_muscle": null, 
+                    "muscle_entities": [
+                        6, 
+                        29, 
+                        33
+                    ], 
+                    "LiftTemplate": [
+                        {
+                            "pk": 5, 
+                            "model": "template_editor.lifttemplate", 
+                            "fields": {
+                                "rest": "60-120", 
+                                "type": 2, 
+                                "exercise_template": 5, 
+                                "workout_template": 2
+                            }
+                        }, 
+                        {
+                            "pk": 6, 
+                            "model": "template_editor.lifttemplate", 
+                            "fields": {
+                                "rest": "", 
+                                "type": 2, 
+                                "exercise_template": 6, 
+                                "workout_template": 1
+                            }
+                        }
+                    ]
+                }
+            }, 
+            "exercise_template": 5, 
+            "workout_template": 2
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "template_editor.lifttemplate", 
+        "fields": {
+            "rest": "", 
+            "type": {
+                "pk": 2, 
+                "model": "exercises.exercisetype", 
+                "fields": {
+                    "name": "Barbell Bench Press, Incline", 
+                    "parent": 1, 
+                    "type": 0, 
+                    "primary_muscle": 3, 
+                    "created_by": 1, 
+                    "time_created": "2008-12-14 17:20:45", 
+                    "secondary_muscle": null, 
+                    "muscle_entities": [
+                        6, 
+                        29, 
+                        33
+                    ], 
+                    "LiftTemplate": [
+                        {
+                            "pk": 5, 
+                            "model": "template_editor.lifttemplate", 
+                            "fields": {
+                                "rest": "60-120", 
+                                "type": 2, 
+                                "exercise_template": 5, 
+                                "workout_template": 2
+                            }
+                        }, 
+                        {
+                            "pk": 6, 
+                            "model": "template_editor.lifttemplate", 
+                            "fields": {
+                                "rest": "", 
+                                "type": 2, 
+                                "exercise_template": 6, 
+                                "workout_template": 1
+                            }
+                        }
+                    ]
+                }
+            }, 
+            "exercise_template": 6, 
+            "workout_template": 1
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "template_editor.lifttemplate", 
+        "fields": {
+            "rest": "", 
+            "type": {
+                "pk": 3, 
+                "model": "exercises.exercisetype", 
+                "fields": {
+                    "name": "Barbell Bench Bench, Wide Grip", 
+                    "parent": 1, 
+                    "type": 0, 
+                    "primary_muscle": 3, 
+                    "created_by": 1, 
+                    "time_created": "2008-12-14 17:21:07", 
+                    "secondary_muscle": null, 
+                    "muscle_entities": [
+                        3, 
+                        6, 
+                        29
+                    ], 
+                    "LiftTemplate": [
+                        {
+                            "pk": 7, 
+                            "model": "template_editor.lifttemplate", 
+                            "fields": {
+                                "rest": "", 
+                                "type": 3, 
+                                "exercise_template": 7, 
+                                "workout_template": 1
+                            }
+                        }
+                    ]
+                }
+            }, 
+            "exercise_template": 7, 
+            "workout_template": 1
+        }
+    }
+]

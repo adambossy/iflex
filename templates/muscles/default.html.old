@@ -1,0 +1,15 @@
+<html>
+
+<head>
+  <title>TODO: Eventually combine these pages into one administrative app</title>
+</head>
+
+<body>
+
+<p><a href="/muscles/default_muscle">Add or View Muscles</a></p>
+
+<p><a href="/muscles/default_muscle_group">Add or View Muscle Groups</a></p>
+
+</body>
+
+</html>

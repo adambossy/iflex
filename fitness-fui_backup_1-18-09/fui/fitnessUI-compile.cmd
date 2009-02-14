@@ -1,0 +1,1 @@
+@java -Xmx256M -cp "%~dp0\src;%~dp0\bin;C:/WEBi/gwt-windows-1.5.3/gwt-user.jar;C:/WEBi/gwt-windows-1.5.3/gwt-dev-windows.jar" com.google.gwt.dev.GWTCompiler -out "C:/Documents and Settings/Administrator/workspace/fitness/site_media" %* com.healthySoftware.fitnessUI -style PRETTY

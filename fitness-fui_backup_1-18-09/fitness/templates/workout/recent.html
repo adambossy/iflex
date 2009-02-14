@@ -1,0 +1,41 @@
+<html>
+
+<head>
+  <title>Recent Workouts</title>
+  <style type="text/css">
+    body {}
+    #recent ul {
+    }
+    #recent li {
+      list-style-type: none;
+    }
+    hr {
+      height: 2px;
+    }
+    #workout-date {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  Welcome, {{ member.firstName }} {{ member.lastName }} (id={{ member.id }}).
+
+  {% if recent_workouts %}
+    <ul id="recent">
+    {% for workout in recent_workouts %}
+      <li>
+	<p id="workout-date">{{ workout.date }}</p>
+	<p><a href="/workout/details/{{ member.id }}/{{ workout.id }}/">{{ workout.notes }}</a></p>
+      </li>
+      <hr noshade/>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No recent workouts are available.</p>
+  {% endif %}
+
+</body>
+
+</html>

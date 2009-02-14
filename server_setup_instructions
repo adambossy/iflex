@@ -1,0 +1,104 @@
+In case I ever have to do this again.
+
+Ubuntu 1.10 Server  (Intrepid) (python 2.5.2 pre-installed)
+ip: 173.45.234.154
+user: root
+pass: g0horn$.
+
+Login and change password
+
+passwd
+
+Install latest Apache 2.x
+
+sudo apt-get install apache2
+
+Install MySQL
+
+sudo apt-get install mysql-server
+
+Install Django
+
+sudo apt-get install python-django
+
+Install Mod Python
+
+sudo apt-get install libapache2-mod-python
+
+Install emacs
+
+sudo apt-get install emacs
+
+Install mySQL and Python connectors
+
+apt-get install python-mysqldb
+
+Allows you to search the repository for any other python-related goodies
+
+apt-cache search python
+
+* Open default apache server files to add Location
+
+emacs /etc/apache2/sites-available/default
+
+Restart apache for changes to take effect
+
+/etc/init.d/apache2 restart
+
+* Create test,oy (test page)
+
+emacs test.py
+
+* Edit httpd.conf with Location information
+
+emacs /etc/apache2/httpd.conf
+
+<Location "/fitness/">
+    SetHandler python-program
+    PythonHandler django.core.handlers.modpython
+    SetEnv DJANGO_SETTINGS_MODULE fitness.settings
+    PythonOption django.root /fitness
+    PythonDebug On
+    PythonPath "['/var/www'] + sys.path"
+    PythonAutoReload Off
+</Location>
+
+Install phpMyAdmin
+
+sudo apt-get install phpmyadmin
+
+Goto: http://localhost/phpmyadmin/. If Apache doesn't recognize phpMyAdmin, create a symbolic link to the apache.conf file that is located in /etc/phpmyadmin/
+
+ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf.d/apache.conf
+/etc/init.d/apache2 restart
+
+Create django project
+
+cd /var/www/
+django-admin startproject fitness
+
+Install nmap and ensure mysql is running
+
+sudo apt-get install nmap
+nmap localhost
+
+* Create database for your project
+Enter password g0horn$.
+
+mysqladmin -u root -p create fitness
+
+* Modify settings.py
+
+emacs settings.py
+
+Restart server for settings to go into effect
+
+/etc/init.d/apache2 restart
+
+Install subversion
+
+sudo apt-get install subversion
+mkdir /usr/share/svn
+cd /usr/share/svn
+svnadmin create fitness
+

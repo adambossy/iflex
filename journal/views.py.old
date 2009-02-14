@@ -1,0 +1,121 @@
+from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect
+
+from time import gmtime, strptime
+from datetime import datetime
+
+from fitness.journal.models import *
+from fitness.members.models import Member
+
+from django.forms import ModelForm
+#from django import forms # new forms
+from django.core.files.uploadedfile import SimpleUploadedFile
+
+class JournalForm (ModelForm):
+    class Meta:
+        model = Pic # JournalEntry
+#        exclude = ('member',)
+
+# Create your views here.
+def default (request):
+    return HttpResponseRedirect('/journal/1/')
+
+def index (request, member_id):
+    # TO DO: If member_id does not exist, then throw error page saying "Member does not exist."
+#    member_id = request.POST
+    obj_dict = {
+        'journal_entries_list': JournalEntry.objects.filter(member=member_id).order_by('-date')[0:10],
+        'member': Member.objects.get(id=member_id),
+        }
+#    for journal_entry in obj_dict['journal_entries_list']:
+#        for pic in journal_entry.pic_set.all():
+#            print "pic file name: ", pic.image_field.url
+#        journal_entry.extend(Pic.objects.filter(journal_entry=journal_entry))
+    return render_to_response('journal/index.html', obj_dict)
+
+#def save (request):
+
+# class JournalForm (forms.Form):
+# #    pic = forms.URLField(label='Your pic location (no upload capability just yet, only remote hosting): ', initial='http://')
+#     pic = forms.ImageField(required=False)
+#     notes = forms.CharField(required=False, widget=forms.Textarea())
+#     # TODO: Find a way to make the lack of a date throw a custom error message.
+#     # TODO: Add date picker to date form field.
+
+#     # TODO: Make the default date today's date.
+#     date = forms.DateField(required=True)
+
+#def add (request, member_id):
+#    obj_dict = {
+#        'journal_form': JournalForm(),
+#        'member': Member.objects.get(id=member_id),
+#        }
+#    if request.GET:
+#        obj_dict['feedback'] = request.GET['feedback']
+#    return render_to_response('journal/add.html', obj_dict)
+
+def add (request, member_id):
+    # validate form, yadda yadda
+    # TO DO: extend this form by using a template. allow
+    # the template to dynamically add multiple pics. auto-
+    # matically bind the form to its respective model.
+#    print "Entering addf."
+    if request.POST:
+        jform = JournalForm (request.POST, request.FILES)
+        if jform.is_valid():
+            cd = jform.cleaned_data
+#            journal_entry = JournalEntry (
+#                member=Member.objects.get(id=member_id),
+#                notes = cd['notes'],
+##               date = datetime(*strptime(req['date'], "%m/%d/%Y")[0:6]),
+#                date = cd['date'],
+#                time_created = gmtime(),
+#                )
+#            journal_entry.save()
+            jform.save()
+#            for pic_file in request.FILES.getlist('pic'):
+#                # TO DO: allow multiple pic adds
+#                pic = Pic (
+#                    journal_entry=journal_entry,
+#                    image_field=pic_file,
+#                    )
+#                pic.save()
+##                print "str(pic):", str(pic)
+#                handle_uploaded_file (pic_file, pic.image_field.path)
+        else:
+            # Jform is not valid, return errors to user.
+#            if (jform['date'].errors):
+#                if (jform['date'].errors == 
+            obj_dict = {
+                'journal_form': jform,
+                'member': Member.objects.get(id=member_id),
+            }
+            return render_to_response('journal/add.html', obj_dict)
+        # throw some sort of error
+        feedback = 'Note added successfully.'
+        return HttpResponseRedirect('/journal/add/%s/?feedback=%s' % (member_id, feedback))
+    else:
+        obj_dict = {
+            'journal_form': JournalForm(),
+            'member': Member.objects.get(id=member_id),
+            }
+        if request.GET:
+            obj_dict['feedback'] = request.GET['feedback']
+        return render_to_response('journal/add.html', obj_dict)
+ 
+# TODO: Check for image extensions (.jpg, .gif, .png, etc.)
+# TODO: Auto-create thumbnails
+def handle_uploaded_file(file, name):
+# TODO: Read new Django 1.0 docs for file storage at : http://docs.djangoproject.com/en/dev/topics/files/
+#    destination = open("/home/abossy/projects/fitness/media/images/" + file.name, 'wb+')
+    destination = open(fitness.journal.models.IMAGES_ROOT + file.name, 'wb+')
+    for chunk in file.chunks():
+        destination.write(chunk)
+#    return destination
+
+def delete (request, member_id, journal_entry_id):
+    journal_entry = JournalEntry.objects.get (member=member_id, id=journal_entry_id)
+    journal_entry.pic_set.all().delete()
+    feedback = "Entry deleted successfully."
+    journal_entry.delete()
+    return HttpResponseRedirect('/journal/%s/?feedback=%s' % (member_id, feedback))

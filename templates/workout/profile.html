@@ -1,0 +1,56 @@
+<html>
+
+<head>
+  <title>Profile</title>
+  <link type="text/css" rel="stylesheet" href="/media/css/global.css" />
+  <style type="text/css">
+    /* insert css ... */
+  </style>
+
+</head>
+
+<body>
+
+  <h3>Welcome, {{ member.firstName }}.</h3>
+
+  <p>Full Name: {{ member.lastName }}, {{ member.firstName }}</p>
+  <p>Age: {{ member.age }}</p>
+  <p>Current Height: {{ member.height }}</p>
+  <p>Current Weight: {{ member.weight }}</p>
+
+
+  <br />
+
+  <h3>Calendar (should be an actual calendar, with an option to show a listing, I suppose, or maybe both): </h3>
+
+  <p><a href="/workout/add_workout/{{ member.id }}/">I worked out! (Add New Workout)</a></p>
+
+  <p><a href="/workout/recent/{{ member.id }}/">View all recent workouts</a></p>
+
+  {% if recent_workouts %}
+    <ul>
+    {% for workout in recent_workouts %}
+      <li>{{ workout.date }} {{ workout.notes }}</li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No recent workouts are available.</p>
+  {% endif %}
+
+  <p><i>To-list: "This week's workouts", or something to that effect...</i><p>
+
+  <ul>
+    <li><a href="/journal/{{ member.id }}/">My Journal</a></li>
+    <li><a href="/members/">Add a Member</a></li>
+    <li><a href="/exercises/">Exercise Type Editor</a></li>
+    <li><a href="/template_editor/{{ member.id }}/">Template Editor</a></li>
+    <li><a href="/muscles/">Muscle Entity Editor</a></li>
+  </ul>
+
+  <p>Debug Info:</p>
+
+  <p>{{ debug_info }}</p>
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+#wrap {
+      margin: 0 auto;
+      width: 512px;
+}
+
+body {
+     min-width: 512px;
+}

@@ -1,0 +1,38 @@
+from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect
+from django.forms import ModelForm
+
+from fitness.muscle_entitys.models import Muscle_Entity, Muscle_EntityGroup
+from fitness.exercises.models import ExerciseType
+from fitness.members.models import Member
+
+# from time import gmtime
+
+class Muscle_EntityForm (ModelForm):
+    class Meta:
+        model = Muscle_Entity
+
+def default_muscle_entity(request):
+    obj_dict = {
+        'muscle_entity_form': Muscle_EntityForm(),
+        'muscle_entity_list': Muscle_Entity.objects.all(),
+        }
+    if request.GET:
+        obj_dict['feedback'] = request.GET['feedback']
+    return render_to_response('muscle_entitys/default_muscle_entity.html', obj_dict)
+
+def add_muscle_entity (request):
+    print request.POST
+    muscle_entity_form = Muscle_EntityForm(request.POST)
+    muscle_entity_form.save()
+    feedback = request.POST['name'] + " added successfully."
+    return HttpResponseRedirect('/muscle_entitys/default_muscle_entity/?feedback=%s' % feedback)
+    
+def delete_muscle_entity (request, muscle_entity_id):
+    muscle_entity = Muscle_Entity.objects.get (id=muscle_entity_id)
+    feedback = muscle_entity.name + " deleted successfully."
+    muscle_entity.delete()
+    return HttpResponseRedirect('/muscle_entitys/default_muscle_entity/?feedback=%s' % feedback)
+
+def default(request):
+    return render_to_response('muscle_entitys/default.html')

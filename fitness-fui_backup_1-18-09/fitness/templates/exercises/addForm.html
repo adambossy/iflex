@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <title>Add a cardio or lift exercise</title>
+</head>
+
+<body>
+
+  {% if feedback %}
+  <p>{{ feedback }}</p>
+  {% endif %}
+
+  <form action="/exercises/add/" method="post">
+
+    <p>
+      Type:
+      <input type="radio" name="type" value="lift" tabindex="1" />Lift
+      <input type="radio" name="type" value="cardio" tabindex="2" />Cardio
+    </p>
+
+    <p>Name: <input type="text" name="name" /></p>
+
+    <p>Created by (member id): <input type="text" name="member" /></p>
+
+    <input type="Submit" value="Go!" />
+
+  </form>
+
+  <hr />
+
+  {% if object_list %}
+    <ul>
+    {% for object in object_list %}
+      <li>{{ object.type }}</li>
+      <li>{{ object.created_by }}</li>
+      <li>{{ object.time_created }}</li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No exercise types are available.</p>
+  {% endif %}
+
+
+</body>
+
+</html>
