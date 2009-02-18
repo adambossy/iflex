@@ -1,0 +1,2 @@
+applicationCreator -eclipse GwtLayout com.healthySoftware.client.GwtLayout
+projectCreator -out GwtLayout -eclipse com.healthySoftware.client.GwtLayout

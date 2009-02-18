@@ -1,0 +1,142 @@
+body {
+	color:#404040;
+	font-family:Georgia,"Times New Roman",Times,serif;	
+	font-size:0.8125em;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+
+/* These pesky style elements are defined in GWT's standard.css that is auto-generated and freaking override my elements */
+table td, select { 
+	font-family: inherit;
+	font-weight: inherit;
+	font-size: inherit;
+	margin: inherit;
+}
+
+a {
+	color:#2C9CB8;
+	text-decoration:underline;
+}
+
+a:hover {
+	background:#2C9CB8 none repeat scroll 0 0;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+/*
+h1, h2, h3, h4, h5 {
+	color:#404040;
+	font-weight: inherit;
+}
+*/
+.wrapper {
+	width: 100%;
+}
+
+
+.header,
+.contents,
+.steps,
+.footer {
+	width: 830px;
+}
+
+.header {
+	left: 0;
+	bottom: 0;
+	height:50px;
+	margin:25px 0 50px;
+	font-size: 1.4em;
+/*	position:relative; */
+}
+/*
+.header h2 {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+*/
+.nav {
+	right: 0;
+	bottom: 0;
+}
+
+.nav-link {
+/*	font-size: 1.2em; */
+	padding: 3px 12px;
+	text-decoration: none;
+	color:#404040;
+}
+/*
+.nav-link a {
+	padding: 1px 3px;
+}
+*/
+/*
+.contents h1 {
+	margin-top: 0;
+	margin-bottom: 0.5em;
+}
+*/
+.contents .large-text {
+	margin-top: 0;
+	margin-bottom: 0.5em;
+	color:#404040;
+	font-weight: inherit;
+	font-size: 1.9em;
+}
+
+.contents .small-text {
+	margin: 0 0 1.5em;
+	line-height: 1.2em; /* What does this mean? */
+	font-size: 1.2em;
+}
+
+.contents a { /* launch */
+	font-size: 1.8em;
+}
+
+.steps-container {
+	background: #cfcfcf; /* #f7f7f7; */
+	border-color: #000;
+	border-width: 1px 0;
+	border-style: solid;
+	width: 930px;
+	margin-top: 1em;
+	overflow: visible;
+}
+
+.steps {
+	text-align: center;
+	padding: 25px 0;
+}
+
+.step-label {
+	width: 260px;
+	text-align: center;
+	font-size: 1.1em;
+	color: #2C9CB8;
+	margin: 0 0 12px;
+}
+
+.steps p {
+	font-size: 1.1em;
+	margin: 0 0 0 1.5em;
+	text-align: center;
+}
+
+.footer {
+	padding: 25px 0;
+}
+
+.footer,
+.footer a {
+	font-size: 0.7em;
+}

@@ -1,7 +1,0 @@
-from fitness.template_editor.models import *
-from django.contrib import admin
-
-admin.site.register(TemplateCollection)
-admin.site.register(WorkoutTemplate)
-admin.site.register(ExerciseTemplate)
-admin.site.register(LiftTemplate)

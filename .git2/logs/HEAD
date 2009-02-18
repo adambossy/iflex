@@ -1,6 +1,0 @@
-0000000000000000000000000000000000000000 8818f6f3d32be4fcda23cb2d4cbf818056885749 Adam Bossy <adambossy@gmail.com> 1233726572 -0800	commit (initial): Initialized git repository.
-8818f6f3d32be4fcda23cb2d4cbf818056885749 4c2071ada087feba9ca81c3d17e20f46b3e5500d Adam Bossy <adambossy@gmail.com> 1233727153 -0800	commit: Initialized git repository.
-4c2071ada087feba9ca81c3d17e20f46b3e5500d d35a4f29be66a7c430b18f46d661182a24725dd4 Adam Bossy <adambossy@gmail.com> 1233728057 -0800	commit: Initialized git repository.
-d35a4f29be66a7c430b18f46d661182a24725dd4 99a5778f6aaa6bcd96202c8b7445d3e292629c4f Adam Bossy <adambossy@gmail.com> 1233735564 -0800	commit: Problem with class names being truncated at the first four chars or so.
-99a5778f6aaa6bcd96202c8b7445d3e292629c4f 110678cbe8dcf8dfe6a8220defe852b903cd5d6e Adam Bossy <adambossy@gmail.com> 1233820381 -0800	commit: Added imports to syncgwt, cleaned it up, fixed 'scleEntity' bug.
-110678cbe8dcf8dfe6a8220defe852b903cd5d6e b41d76cf442440c8fe1201e3010ca45da46b7afc Adam Bossy <adambossy@gmail.com> 1234340248 -0800	commit: AddWorkout is functioning in a preliminary form.
