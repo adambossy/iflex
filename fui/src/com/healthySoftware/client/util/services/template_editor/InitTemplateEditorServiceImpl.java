@@ -36,7 +36,7 @@ public class InitTemplateEditorServiceImpl extends DjangoService {
     	if (Constants.DEBUG)
     		this.fakeRequest(/*null, */container); // TODO: Possibly choose from a list of test cases? Could we make this a URI parameter?
     	else
-    		super.makeRequest(this.path + "?member_id=1", container);
+    		super.makeRequest(this.path + "?member_id=" + Window.Location.getParameter("member_id"), container);
     }
     
     public void fakeRequest(/*Object self/* De facto "don't care" parameter */FUIContainer container) {

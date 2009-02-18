@@ -2,7 +2,7 @@ package com.healthySoftware.client.util.services.workout;
 
 import com.google.gwt.user.client.Window;
 import com.healthySoftware.client.AddWorkout;
-//import com.healthySoftware.client.util.Constants;
+import com.healthySoftware.client.util.Constants;
 import com.healthySoftware.client.util.services.DjangoService;
 import com.healthySoftware.client.util.services.ServicePopulator;
 
@@ -49,10 +49,10 @@ public class AddWorkoutServiceImpl extends DjangoService {
 
     public void makeRequest(Object self) {
 //    	this.self = self;
-    	if (AddWorkout.DEBUG)
+    	if (Constants.DEBUG)
     		this.fakeRequest(/*null*/); // TODO: Possibly choose from a list of test cases? Could we make this a URI parameter?
     	else
-    		super.makeRequest(this.path + "?workout_template_id=1");
+    		super.makeRequest(this.path + "?workout_template_id=" + Window.Location.getParameter("workout_template_id"));
     }
     
     public void fakeRequest(/*Object self/* De facto "don't care" parameter */) {

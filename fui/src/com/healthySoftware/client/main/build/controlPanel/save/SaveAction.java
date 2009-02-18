@@ -126,7 +126,7 @@ public class SaveAction extends AJAXObject {
 //	}
 
 	public void saveTemplate(FUIContainer container) {
-		String url = (Constants.DEBUG ? Constants.LOCAL_URL_ROOT : Constants.WEB_URL_ROOT) + JSON_URL;
+		String url = (Constants.LOCAL ? Constants.LOCAL_URL_ROOT : Constants.WEB_URL_ROOT) + JSON_URL;
 		String templateStream = serializeTemplate(
 				fitnessUI.properties.getExerciseList(),
 				fitnessUI.properties.getTemplateName()

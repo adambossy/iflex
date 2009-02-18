@@ -19,7 +19,7 @@ all_members_dict = {
 
 urlpatterns = patterns('',
                        # Workout
-                       (r'^$', 'iflex.workout.views.index'),
+                       (r'^$', 'iflex.static.views.default'),
 
                        (r'^fetch/$', 'iflex.workout.views.fetch'),
 

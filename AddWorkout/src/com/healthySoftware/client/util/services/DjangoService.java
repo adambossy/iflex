@@ -13,7 +13,7 @@ public abstract class DjangoService {
      
     public void makeRequest(String path) {
         RequestBuilder builder = new RequestBuilder(RequestBuilder.GET,
-                URL.encode(Constants.DEBUG ? 
+                URL.encode(Constants.LOCAL ? 
         				Constants.LOCAL_URL_ROOT + path :
         				Constants.WEB_URL_ROOT + path));
 

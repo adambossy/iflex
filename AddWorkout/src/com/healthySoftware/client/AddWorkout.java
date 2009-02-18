@@ -8,7 +8,7 @@ import com.healthySoftware.client.util.services.workout.AddWorkoutServiceImpl;
  */
 public class AddWorkout/* extends AJAXObject*/ implements EntryPoint {
 
-	final public static boolean DEBUG = true; 
+//	final public static boolean DEBUG = true; 
 	
 	public void onModuleLoad() {
 		System.out.println("Running...");

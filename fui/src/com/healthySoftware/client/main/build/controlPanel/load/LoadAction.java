@@ -42,7 +42,7 @@ public class LoadAction extends AJAXObject {
 	}
 
 	void loadTemplate(FUIContainer container) {
-		String url = (Constants.DEBUG ? Constants.LOCAL_URL_ROOT : Constants.WEB_URL_ROOT) + JSON_URL;
+		String url = (Constants.LOCAL ? Constants.LOCAL_URL_ROOT : Constants.WEB_URL_ROOT) + JSON_URL;
 		url = URL.encode(url) + "?workout_template_id=" + fitnessUI.properties.getTemplateId() + "&callback=";
 		System.out.println(url);
 		getJson(jsonRequestId++, url, container.getControlPanel().getLoadAction(), container);
