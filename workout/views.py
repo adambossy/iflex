@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core import serializers
+from django.conf import settings
 from django.utils import simplejson
 from iflex.workout.models import *
 from iflex.exercises.models import *
@@ -17,7 +18,7 @@ project_root = '/home/abossy/projects/fitness/templates/workout'
 css_root = project_root
 
 def index (request):
-    return HttpResponseRedirect('/workout/profile/1/')
+    return HttpResponseRedirect('/iflex/workout/profile/1/')
 
 def fetch (request):
     print("request:",request)
@@ -132,6 +133,7 @@ def profile (request, member_id):
     obj_dict = {
         'member': Member.objects.get(id=member_id),
         'recent_workouts': Workout.objects.filter(member=member_id).order_by('-date')[0:2],
+        'root_url': settings.ROOT_URL,
         }
     return render_to_response('workout/profile.html', obj_dict)
     
