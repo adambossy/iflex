@@ -1,10 +1,11 @@
 package com.healthySoftware.client.main.build.exerciseSelector;
 
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.ClickListener;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.PushButton;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.healthySoftware.client.FUIContainer;
 
@@ -14,12 +15,23 @@ public class ExerciseItem extends HorizontalPanel {
 
 	ExerciseItem(final int id, final String name, final FUIContainer container) {
 
+//		this.setBorderWidth(1);
+		
 		addStyleName("exercise-selector-panel-element");
 
+		Image thumbnail = new Image("http://localhost:8000/media/images/exercises/barbell-bench-press-incline-small.png");
+		thumbnail.addStyleName("exercise-selector-panel-element-thumbnail");
+//		thumbnail.setSize("66%", "66%");
+		add(thumbnail);
+//		setCellWidth(thumbnail, thumbnail.getWidth()+"px");
+		
 		// this.name = name;
-		HTML label = new HTML(name);
+		HTML label = new HTML("<div id=\"wrapper\">" + name + "</div>");
 		label.addStyleName("exercise-selector-panel-element-label");
+		setCellVerticalAlignment(label, HorizontalPanel.ALIGN_MIDDLE);
 		add(label);
+		setCellWidth(label, "100%");
+
 		setWidth("100%");
 
 		// Somehow make this a button
@@ -27,7 +39,9 @@ public class ExerciseItem extends HorizontalPanel {
 		// TODO: Make the entire HorizontalPanel a PushButton
 		AddButton addButton; 
 		add(addButton = new AddButton(id, name, container));
-		this.setCellWidth(addButton, "32px");
+		addButton.setHTML("<img src=\"http://localhost:8000/media/images/icons/add.png\" />");
+		setCellVerticalAlignment(addButton, HorizontalPanel.ALIGN_MIDDLE);
+		setCellWidth(addButton, "32px");
 	}
 
 	private class AddButton extends PushButton {

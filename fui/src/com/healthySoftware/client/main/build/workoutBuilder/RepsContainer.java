@@ -21,6 +21,7 @@ public class RepsContainer extends HorizontalPanel {
 			repsList.add(new Reps(repsList, null));
 		super.add(repsList);
 		super.add(new AddRepsButton(repsList  , container));
+		addStyleName("reps-container");
 	}
 	
 	public String[] getReps() { // int index) {

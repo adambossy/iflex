@@ -3,6 +3,7 @@
 import java.util.ArrayList;
 
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.healthySoftware.client.FUIContainer;
@@ -16,10 +17,35 @@ public class WorkoutBuilderPanel extends VerticalPanel {
 		// Abstract loop away to a superclass object or make the code inside the
 		// loop part of a subclass object
 		addStyleName("workout-builder-panel");
-		HTML heading = new HTML("My Workout");
+		
+//		HTML heading = new HTML("My Workout");
+		HorizontalPanel heading = new HorizontalPanel();
+		heading.setBorderWidth(1);
 		heading.addStyleName("workout-builder-panel-heading");
-		// heading.setTitle(tooltip);
+		
+		HTML title = new HTML("My Workout");
+		heading.add(title);
+		
+		HTML warmupReps = new HTML("Warmup Reps");
+		warmupReps.addStyleName("reps-label");
+		heading.add(warmupReps);
+
+		HTML workoutReps = new HTML("Workout Reps");
+		workoutReps.addStyleName("reps-label");
+		heading.add(workoutReps);
+
+		HTML rest = new HTML("Rest in secs");
+		rest.addStyleName("rest-label");
+		heading.add(rest);
+
+		HTML notes = new HTML("Notes");
+		notes.addStyleName("notes-label");
+		heading.add(notes);
+
 		add(heading);
+
+		heading.setWidth("100%");
+		heading.setCellWidth(title, "100%");
 
 		// TODO: Should container be a global? There are no instances when we
 		// would access a different "container"

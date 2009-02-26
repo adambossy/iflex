@@ -30,12 +30,12 @@ public class BuildTab extends VerticalPanel {
 		upperHalf.setWidth("100%");
 		upperHalf.setCellWidth(muscleGroupSelectorPanel, "150px");
 		upperHalf.setCellWidth(exerciseSelectorContainer, "100%");
-		upperHalf.setBorderWidth(1);
+//		upperHalf.setBorderWidth(1);
 		
 		/* LOWER HALF */
 		VerticalPanel lowerHalf = new VerticalPanel();
 		lowerHalf.add(workoutBuilderPanel = new WorkoutBuilderPanel(container));
-		lowerHalf.add(controlPanel = new ControlPanel(container));
+//		lowerHalf.add(controlPanel = new ControlPanel(container));
 		lowerHalf.setWidth("100%");
 //		workoutBuilderPanel.setWidth("100%");
 		
@@ -71,11 +71,11 @@ public class BuildTab extends VerticalPanel {
 		this.muscleGroupSelectorPanel = muscleGroupSelectorPanel;
 	}
 
-	public ControlPanel getControlPanel() {
-		return controlPanel;
-	}
-
-	public void setControlPanel(ControlPanel controlPanel) {
-		this.controlPanel = controlPanel;
-	}
+//	public ControlPanel getControlPanel() {
+//		return controlPanel;
+//	}
+//
+//	public void setControlPanel(ControlPanel controlPanel) {
+//		this.controlPanel = controlPanel;
+//	}
 }

@@ -15,6 +15,7 @@ public class SaveAsButton extends Button {
 	public SaveAsButton(final SaveAction saveAction) {
 		setText("Save As... (will save a new copy)");
 		addStyleName("save-as-button");
+		addStyleName("button");
 //		this.setEnabled(false);
 //		this.saveAction = saveAction; 
 		addClickListener(new ClickListener() {

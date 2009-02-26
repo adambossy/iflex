@@ -26,7 +26,7 @@ public class FUIContainer extends VerticalPanel { // implements WindowResizeList
 //	final int WORKOUT_BUILDER_PANEL = 2;
 	
 	FUIContainer() {
-		add((header = new Header()));
+		add((header = new Header(this)));
 		add((tabContainer = new TabContainer(this)));
 //		if (DEBUG_MODE_ENABLED)
 			add((errorConsole = new ErrorConsole()));
@@ -34,7 +34,8 @@ public class FUIContainer extends VerticalPanel { // implements WindowResizeList
 	}
 
 	public ControlPanel getControlPanel() {
-		return tabContainer.getBuildTab().getControlPanel();
+//		return tabContainer.getBuildTab().getControlPanel();
+		return getHeader().getControlPanel();
 	}
 
 	// ExerciseSelectionPanel getExerciseSelectionPanel() {

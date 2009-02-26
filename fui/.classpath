@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="com/healthySoftware/client/util/models/ExerciseTemplate.java|com/healthySoftware/client/util/models/LiftTemplate.java|com/healthySoftware/client/util/models/RepsTemplate.java|com/healthySoftware/client/util/services/tests/WorkoutTemplateTest.java|com/healthySoftware/client/CopyOffitnessUI.java|com/healthySoftware/client/util/services/LoadExerciseTemplatesServiceImpl.java" kind="src" path="src"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/Users/adambossy/Documents/workspace/gwt-mac-1.5.3/gwt-user.jar"/>
 	<classpathentry kind="var" path="JUNIT_HOME/junit.jar"/>
-	<classpathentry kind="lib" path="/Users/adambossy/Documents/workspace/gwt-mac-1.5.3/gwt-dev-mac.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

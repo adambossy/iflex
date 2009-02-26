@@ -21,6 +21,12 @@ urlpatterns = patterns('',
                        # Workout
                        (r'^$', 'iflex.static.views.default'),
 
+                       (r'^login/$', 'iflex.static.views.login'),
+
+                       (r'^auth/$', 'iflex.static.views.auth'),
+
+                       (r'^mockup/$', 'iflex.workout.views.'),
+
                        (r'^fetch/$', 'iflex.workout.views.fetch'),
 
                        (r'^workout/add/(?P<member_id>\d+)/$',

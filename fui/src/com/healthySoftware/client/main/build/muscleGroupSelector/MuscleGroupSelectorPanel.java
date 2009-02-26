@@ -45,10 +45,10 @@ public class MuscleGroupSelectorPanel extends VerticalPanel {
 
 //	private static final String CSS_DEMO_BEHAVIOR_HEADING = "demo-behavior-heading";
 
-	private static final String CSS_DEMO_BEHAVIOR_SELECTION = "muscle-group-selector-panel";
+	private static final String MUSCLE_GROUP_SELECTOR_PANEL = "muscle-group-selector-panel";
 
 	public MuscleGroupSelectorPanel() { //String muscleGroupName) {
-		addStyleName(CSS_DEMO_BEHAVIOR_SELECTION);
+		addStyleName(MUSCLE_GROUP_SELECTOR_PANEL);
 //		HTML heading = new HTML(muscleGroupName);
 //		heading.addStyleName(CSS_DEMO_BEHAVIOR_HEADING);
 //		heading.setTitle(tooltip);

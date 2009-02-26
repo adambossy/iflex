@@ -1,142 +1,97 @@
 package com.healthySoftware.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Anchor;
+import com.google.gwt.user.client.ui.DeckPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.healthySoftware.client.contents.home.Home;
+import com.healthySoftware.client.contents.register.GoalsCheckList;
+import com.healthySoftware.client.footer.Footer;
+import com.healthySoftware.client.header.HeaderFixed;
+import com.healthySoftware.client.header.HeaderFull;
 
 public class GwtLayout implements EntryPoint {
 
 	// Turns on all borders
 	private static boolean BORDERS = false;
-	
-  public void onModuleLoad() {
-	  VerticalPanel container = new VerticalPanel();
-//	  container.setWidth("830px");
-	  container.setHorizontalAlignment(VerticalPanel.ALIGN_CENTER);
-	  
-	  HorizontalPanel header = new HorizontalPanel();
-	  header.addStyleName("header");
-	  if (BORDERS) header.setBorderWidth(1);
-	  
-	  HTML logo = new HTML("iFlex Fitness");
-	  logo.addStyleName("logo");
-//	  header.add(logo);
-	  
-	  HorizontalPanel nav = new HorizontalPanel();
-	  nav.addStyleName("nav");
-	  if (BORDERS) nav.setBorderWidth(1);
-	  
-	  nav.add(createLink("Home"));
-	  nav.add(createLink("About"));
-	  nav.add(createLink("Workout Editor"));
-	  nav.add(createLink("Contact"));
-//	  nav.add("Blog");
-	  
-	  header.add(logo);
-	  header.setCellHorizontalAlignment(logo, HorizontalPanel.ALIGN_LEFT);
-	  header.setCellVerticalAlignment(logo, HorizontalPanel.ALIGN_BOTTOM);
-	  header.add(nav);
-//	  header.setWidth("830px");
-	  header.setCellHorizontalAlignment(nav, HorizontalPanel.ALIGN_RIGHT);
-	  header.setCellVerticalAlignment(nav, HorizontalPanel.ALIGN_BOTTOM);
-	  
-	  VerticalPanel contents = new VerticalPanel();
-	  contents.addStyleName("contents");
-	  
-	  HTML largeText = new HTML("Welcome to the world's easiest way to stay fit.");
-	  largeText.addStyleName("large-text");
-	  contents.add(largeText);
-	  
-	  HTML smallText = new HTML("Say goodbye to the false promises of infomercials and diet programs, and say hello to the first no-gimmicks way to keep a healthy lifestyle.");
-	  smallText.addStyleName("small-text");
-	  contents.add(smallText);
-	  
-	  Anchor launch = new Anchor("Launch My Workout Routine >");
-	  contents.add(launch);
-	  contents.addStyleName("launch");
-	  if (BORDERS) contents.setBorderWidth(1);
-	  contents.setCellHorizontalAlignment(launch, VerticalPanel.ALIGN_RIGHT);
 
-	  HorizontalPanel stepsContainer = new HorizontalPanel();
-	  if (BORDERS) stepsContainer.setBorderWidth(1);
-	  stepsContainer.addStyleName("steps-container");
-	  stepsContainer.setWidth("100%");
-	  HorizontalPanel steps = new HorizontalPanel();
-	  if (BORDERS) steps.setBorderWidth(1);
-	  steps.addStyleName("steps");
-	  steps.setHorizontalAlignment(HorizontalPanel.ALIGN_CENTER);
-	  steps.add(createStep("Plan"));
-	  steps.add(createStep("Track"));
-	  steps.add(createStep("Visualize"));
-//	  steps.setWidth("100%");
-	  
-	  stepsContainer.add(steps);
-	  stepsContainer.setCellHorizontalAlignment(steps, HorizontalPanel.ALIGN_CENTER);
+//	private String ROOT_URL = "http://iflex.adambossy.com";
+	private String ROOT_URL = "http://localhost:8000/";
 
-	  HorizontalPanel footer = new HorizontalPanel();
-	  footer.addStyleName("footer");
-	  
-	  HTML copyright = new HTML("(C) Copyright 2009 healthySoftware");
-	  
-	  HorizontalPanel footerNav = new HorizontalPanel(); 
-	  footerNav.add(createLink("Home"));
-	  footerNav.add(createLink("About"));
-	  footerNav.add(createLink("Workout Editor"));
-	  footerNav.add(createLink("Contact"));
-	  
-	  footer.add(copyright);
-	  footer.add(footerNav);
-//	  footer.setWidth("100%");
-	  if (BORDERS) footer.setBorderWidth(1);
-	  footer.setCellHorizontalAlignment(footerNav, HorizontalPanel.ALIGN_RIGHT);
-	  
-//	  container.add(header);
-//	  container.add(contents);
-//	  container.add(stepsContainer);
-//	  container.add(footer);
-	  
-//	  wrapper.add(container);
-//	  wrapper.setWidth("100%");
-//	  wrapper.setCellHorizontalAlignment(container, VerticalPanel.ALIGN_CENTER);
+	public void onModuleLoad() {
 
-//	  RootPanel.get().add(wrapper);
-	  VerticalPanel wrapperTop = new VerticalPanel();
-	  wrapperTop.addStyleName("wrapper");
-	  wrapperTop.add(header);
-	  wrapperTop.add(contents);
-	  wrapperTop.setCellHorizontalAlignment(header, VerticalPanel.ALIGN_CENTER);
-	  wrapperTop.setCellHorizontalAlignment(contents, VerticalPanel.ALIGN_CENTER);
+		VerticalPanel container = new VerticalPanel();
+		// container.setWidth("830px");
+		container.setHorizontalAlignment(VerticalPanel.ALIGN_CENTER);
+		if (BORDERS)
+			container.setBorderWidth(1);
 
-	  VerticalPanel wrapperBottom = new VerticalPanel();
-	  wrapperBottom.addStyleName("wrapper");
-	  wrapperBottom.add(footer);
-	  wrapperBottom.setCellHorizontalAlignment(footer, VerticalPanel.ALIGN_CENTER);
-	  
-	  RootPanel.get().add(wrapperTop);
-	  RootPanel.get().add(stepsContainer);
-	  RootPanel.get().add(wrapperBottom);
-  }
-  
-  // TODO: Subclass this?
-  Anchor createLink(String name) {
-	  Anchor anchor = new Anchor(name);
-	  anchor.addStyleName("nav-link");
-	  anchor.setHref("/"+name.toLowerCase());
-	  return anchor;
-  }
-  
-  VerticalPanel createStep(String name) {
-	  VerticalPanel step = new VerticalPanel();
-	  HTML label = new HTML(name);
-	  label.addStyleName("step-label");
-//	  Image pic = new Image();
-//	  pic.addStyleName("pic");
-	  HTML placeholder = new HTML("<p>Pic placeholder</p>");
-	  step.add(label);
-	  step.add(placeholder);
-	  return step;
-  }
+		String color = Window.Location.getParameter("color");
+		if (color == null
+				|| (!color.equals("yellow") && !color.equals("green")
+						&& !color.equals("blue") && !color.equals("orange")))
+			color = "blue"; // Default
+		System.out.println("parameter :: color: " + color);
+		
+		String draft = Window.Location.getParameter("draft");
+		if (draft == null
+				|| (!draft.equals("1") && !draft.equals("2") && !draft
+						.equals("3")))
+			draft = "1";
+		System.out.println("parameter :: draft: " + draft);
+		
+		String space = Window.Location.getParameter("space");
+		if (space == null || !(space.equals("spaced") || space.equals("tight")))
+			space = "spaced";
+		System.out.println("parameter :: space: " + space);
+
+		String width = Window.Location.getParameter("width");
+		if (width == null || !(width.equals("full") || width.equals("fixed")))
+			width = "fixed";
+		System.out.println("parameter :: width: " + width);
+		
+		RootPanel.get().addStyleName("style-" + color);
+		RootPanel.get().addStyleName("style-" + space);
+		RootPanel.get().addStyleName("style-" + width);
+//		RootPanel.get().addStyleName("style-" + inline);
+
+//		DeckPanel main = new DeckPanel();
+//		main.setHeight("400px");
+
+		VerticalPanel wrapper = new VerticalPanel();
+		wrapper.addStyleName("wrapper");
+
+		if (width.equals("full"))
+			wrapper.add(new HeaderFull(BORDERS, draft, color));
+		else
+			wrapper.add(new HeaderFixed(BORDERS, draft, color));
+		// wrapperTop.add(contents);
+//		wrapperTop.setCellHorizontalAlignment(wrapperTop.getWidget(),
+//				VerticalPanel.ALIGN_CENTER);
+
+		/* BODY */
+		wrapper.add(new HTML("<div id=\"body attachment-point\">Body.</div>")); // For compilation use only
+//		main.add(new GoalsCheckList(BORDERS));
+//		main.addStyleName("main");
+//		main.showWidget(0);
+		/* END BODY */
+
+		wrapper.add(new Footer(BORDERS));
+		
+//		SimplePanel wrapperBottom = new SimplePanel();
+//		wrapperBottom.addStyleName("wrapper");
+//		wrapperBottom.add(new Footer(BORDERS));
+//		wrapperBottom.setCellHorizontalAlignment(wrapperBottom.getWidget(),
+//				VerticalPanel.ALIGN_CENTER);
+
+		RootPanel.get().add(wrapper);
+		// RootPanel.get().add(stepsContainer);
+//		RootPanel.get().add(main);
+//		RootPanel.get().add(wrapperBottom);
+	}
 }

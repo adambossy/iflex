@@ -11,6 +11,7 @@ public class LoadButton extends Button {
 	public LoadButton(final LoadAction loadAction) {
 		setText("Load");
 		addStyleName("load-button");
+		addStyleName("button");
 		this.setEnabled(false);
 //		this.loadAction = loadAction;
 		addClickListener(new ClickListener() {

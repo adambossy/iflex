@@ -4,6 +4,7 @@ public class Rest extends RepsTextBox {
 
 	Rest(String defaultNum) {
 		super(defaultNum);
-		addStyleName("workout-builder-panel-rest");
+//		addStyleName("workout-builder-panel-rest");
+		addStyleName("rest");
 	}
 }

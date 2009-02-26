@@ -16,6 +16,7 @@ public class SaveButton extends Button {
 	public SaveButton(final SaveAction saveAction, final FUIContainer container) {
 		setText("Save");
 		addStyleName("save-button");
+		addStyleName("button");
 //		this.setEnabled(false);
 //		this.saveAction = saveAction;
 		addClickListener(new ClickListener() {

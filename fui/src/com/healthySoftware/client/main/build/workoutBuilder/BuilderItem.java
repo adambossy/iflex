@@ -3,6 +3,7 @@ package com.healthySoftware.client.main.build.workoutBuilder;
 import com.google.gwt.user.client.ui.ClickListener;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.Widget;
 import com.healthySoftware.client.FUIContainer;
@@ -26,15 +27,22 @@ public class BuilderItem extends HorizontalPanel {
 
 	public BuilderItem(int id, String name, FUIContainer container, String[] warmupReps,
 			String[] workoutReps, /*String tempo,*/ String rest, String notes) {
-		addStyleName("exercise-selector-panel-element");
+		addStyleName("workout-builder-panel-element");
 
+		this.setBorderWidth(1);
+		
 		setWidth("100%");
 		
+		Image thumbnail = new Image("http://localhost:8000/media/images/exercises/barbell-bench-press-incline-64x32.png");
+		add(thumbnail);
+		
 		HTML type = new HTML(name); // index = 0;
-		type.addStyleName("exercise-selector-panel-element-label");
+		type.addStyleName("workout-builder-panel-element-label");
 		add(type);
 
 		HorizontalPanel in = new HorizontalPanel();
+		in.addStyleName("workout-builder-panel-element-input");
+		in.setBorderWidth(2);
 		
 		/* TODO: divide sets, reps, tempo, rest, into mini-subclasses */
 //		add(new Sets(warmupSets));
@@ -55,9 +63,9 @@ public class BuilderItem extends HorizontalPanel {
 		in.add(this.notes = new Notes()); // index = 9
 		
 		setCellWidth(type, "100%");
-		in.setBorderWidth(1);
+//		in.setBorderWidth(1);
 		add(in);
-		setCellWidth(in, "500px");
+		setCellWidth(in, "480px");
 		
 //		for (int i = 1; i < 9; i++) 
 //			this.setCellWidth(this.getWidget(i), this.getWidget(i).getOffsetWidth()+"px");
@@ -165,7 +173,7 @@ public class BuilderItem extends HorizontalPanel {
 			setHTML(new HTML("[x]").toString());
 			setTabIndex(-1);
 			// TODO: Create new style
-			addStyleName("exercise-selector-panel-element-move");
+			addStyleName("delete");
 		}
 	}
 
@@ -179,7 +187,8 @@ public class BuilderItem extends HorizontalPanel {
 			setHTML(new HTML("[^]").toString());
 			setTabIndex(-1);
 			// TODO: Create new style
-			addStyleName("exercise-selector-panel-element-move");
+//			addStyleName("exercise-selector-panel-element-move");
+			addStyleName("move");
 		}
 	}
 
@@ -193,7 +202,8 @@ public class BuilderItem extends HorizontalPanel {
 			setHTML(new HTML("[v]").toString());
 			setTabIndex(-1);
 			// TODO: Create new style
-			addStyleName("exercise-selector-panel-element-add");
+//			addStyleName("exercise-selector-panel-element-add");
+			addStyleName("down");
 		}
 	}
 }

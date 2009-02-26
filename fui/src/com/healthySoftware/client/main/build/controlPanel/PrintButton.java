@@ -15,5 +15,6 @@ public class PrintButton extends Button {
 		});
 		setText("Print");
 		addStyleName("print-button");
+		addStyleName("button");
 	}
 }
