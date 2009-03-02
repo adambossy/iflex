@@ -15,7 +15,7 @@ public class Reps extends HorizontalPanel { // RepsTextBox {
 		final Reps self = this;
 
 		RepsTextBox in = new RepsTextBox(defaultNum);
-		in.addStyleName("workout-builder-panel-reps");
+		in.addStyleName("reps-text-box");
 		
 		Button delete = new Button();
 		delete.addClickListener(new ClickListener() {

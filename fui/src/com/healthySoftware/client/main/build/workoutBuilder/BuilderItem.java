@@ -2,145 +2,146 @@ package com.healthySoftware.client.main.build.workoutBuilder;
 
 import com.google.gwt.user.client.ui.ClickListener;
 import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.Widget;
 import com.healthySoftware.client.FUIContainer;
 
 /* TODO: Have this share a superclass with the empty placeholder div at the bottom of the "My Workout" panel */
-public class BuilderItem extends HorizontalPanel {
+public class BuilderItem extends BuilderItemDAO /*HorizontalPanel */ {
 
-	private BuilderItemDAO dao;
+//	private BuilderItemDAO dao;
 	
-	RepsContainer warmupRepsContainer = null;
-	RepsContainer workoutRepsContainer = null;
-	Rest rest = null;
-	Notes notes = null;
+//	int row;
+	
+	RepsContainer warmupRepsContainer;
+	RepsContainer workoutRepsContainer;
+	Rest rest;
+	Notes notes;
+	UpButton upButton;
+	DownButton downButton;
+	DeleteButton deleteButton;
 	
 	/**
 	 * Constructor that generates random numbers for the sake of dev and testing
 	 */
-	public BuilderItem(int id, String name, FUIContainer container, String rest, String notes) {
-		this(id, name, container, null, null, /*"311",*/ rest, notes);
+
+	public BuilderItem(FUIContainer container, int id, String name, String rest, String notes) {
+		this(container, id, name, null, null, rest, notes);
 	}
 
-	public BuilderItem(int id, String name, FUIContainer container, String[] warmupReps,
-			String[] workoutReps, /*String tempo,*/ String rest, String notes) {
-		addStyleName("workout-builder-panel-element");
-
-		this.setBorderWidth(1);
-		
-		setWidth("100%");
-		
-		Image thumbnail = new Image("http://localhost:8000/media/images/exercises/barbell-bench-press-incline-64x32.png");
-		add(thumbnail);
-		
-		HTML type = new HTML(name); // index = 0;
-		type.addStyleName("workout-builder-panel-element-label");
-		add(type);
-
-		HorizontalPanel in = new HorizontalPanel();
-		in.addStyleName("workout-builder-panel-element-input");
-		in.setBorderWidth(2);
-		
-		/* TODO: divide sets, reps, tempo, rest, into mini-subclasses */
-//		add(new Sets(warmupSets));
-//		in.add(warmupRepsContainer = createRepsContainer(warmupReps, in, container)); // index = 1
-		in.add(warmupRepsContainer = new RepsContainer(warmupReps, container)); // index = 1
-
-//		add(new Sets(workoutSets));
-//		in.add(workoutRepsContainer = createRepsContainer(workoutReps, in, container)); // index = 3
-		in.add(workoutRepsContainer = new RepsContainer(workoutReps, container)); // index = 3
-
-//		add(new Tempo(tempo)); 
-		in.add(this.rest = new Rest(rest)); // index = 5
-
-		in.add(new UpButton(this, container)); // index = 6
-		in.add(new DownButton(this, container)); // index = 7
-		in.add(new DeleteButton(this, container)); // index = 8
-		
-		in.add(this.notes = new Notes()); // index = 9
-		
-		setCellWidth(type, "100%");
-//		in.setBorderWidth(1);
-		add(in);
-		setCellWidth(in, "480px");
-		
-//		for (int i = 1; i < 9; i++) 
-//			this.setCellWidth(this.getWidget(i), this.getWidget(i).getOffsetWidth()+"px");
-		
-		dao = new BuilderItemDAO(
-			id,
-			name,
-			warmupReps,
-			workoutReps,
-			/*tempo,*/
-			rest,
-			notes,
-			this
+	public BuilderItem(FUIContainer container, int id, String name, String[] warmupReps,
+			String[] workoutReps, String rest, String notes) {
+		super(
+				id,
+				name,
+				warmupReps,
+				workoutReps,
+				rest,
+				notes
 		);
+		this.warmupRepsContainer = new RepsContainer(warmupReps, container);
+		this.workoutRepsContainer = new RepsContainer(workoutReps, container);
+		this.rest = new Rest(rest);
+		this.notes = new Notes(notes);
+		this.upButton = new UpButton(this, container);
+		this.downButton = new DownButton(this, container);
+		this.deleteButton = new DeleteButton(this, container);
 	}
-
 
 	public String getExerciseName() {
-		return dao.getExerciseName();
+		return super.getExerciseName();
 	}
 	
 	public void setExerciseName(String exerciseName) {
-		dao.setExerciseName(exerciseName);
+		super.setExerciseName(exerciseName);
 	}
 
 	public int getTypeId() {
-		return dao.getTypeId();
+		return super.getTypeId();
 	}
 
 //	public void setTypeId(int typeId) {
-//		dao.setTypeId(typeId);
+//		super.setTypeId(typeId);
 //	}
 
 	public String[] getWarmupReps() {
-		dao.setWarmupReps(warmupRepsContainer.getReps());
-		return dao.getWarmupReps();
+		super.setWarmupReps(warmupRepsContainer.getReps());
+		return super.getWarmupReps();
 	}
 
 //	public void setWarmupReps(String[] warmupReps) {
-//		dao.setWarmupReps(warmupReps);
+//		super.setWarmupReps(warmupReps);
 //	}
 
 	public String[] getWorkoutReps() {
-		dao.setWarmupReps(workoutRepsContainer.getReps());
-		return dao.getWarmupReps();
+		super.setWarmupReps(workoutRepsContainer.getReps());
+		return super.getWarmupReps();
 	}
 
 //	public void setWorkoutReps(String[] workoutReps) {
-//		dao.setWorkoutReps(workoutReps);
+//		super.setWorkoutReps(workoutReps);
 //	}
 
 	public String getRest() {
-		dao.setRest(rest.getText());
-		return dao.getRest();
+		super.setRest(rest.getText());
+		return super.getRest();
 	}
 
 //	public void setRest(String rest) {
-//		dao.setRest(rest);
+//		super.setRest(rest);
 //	}
 	
 	public String getNotes() {
-		dao.setNotes(notes.getText());
-		return dao.getNotes();
+		super.setNotes(notes.getText());
+		return super.getNotes();
 	}
 	
 //	public void setNotes(String notes) {
-//		dao.setNotes(notes);
+//		super.setNotes(notes);
 //	}
 
-	public BuilderItemDAO getDAO() {
-		return dao;
+//	public BuilderItemDAO getDAO() {
+//		return this.
+//	}
+
+//	public int getRow() {
+//		return row;
+//	}
+
+//	public void setRow(int row) {
+//		this.row = row;
+//	}
+
+	protected RepsContainer getWarmupRepsContainerWidget() {
+		return warmupRepsContainer;
 	}
 
-//	public void setDAO(BuilderItemDAO dao) {
-//		this.dao = dao;
+	protected RepsContainer getWorkoutRepsContainerWidget() {
+		return workoutRepsContainer;
+	}
+	
+	protected Notes getNotesWidget() {
+		return notes;
+	}
+	
+	protected Rest getRestWidget() {
+		return rest;
+	}
+
+	protected UpButton getUpButton() {
+		return upButton;
+	}
+
+	protected DownButton getDownButton() {
+		return downButton;
+	}
+
+	protected DeleteButton getDeleteButton() {
+		return deleteButton;
+	}
+
+	//	public void setDAO(BuilderItemDAO super) {
+//		this.super = super;
 //	}
 /*
 	private RepsContainer createRepsContainer(String[] reps, HorizontalPanel inputContainer, FUIContainer container) {
@@ -160,7 +161,7 @@ public class BuilderItem extends HorizontalPanel {
 		/**
 		 * @param parent - BuilderItem containing this DeleteButton
 		 */
-		DeleteButton(final Widget parent, final FUIContainer container) {
+		DeleteButton(final BuilderItem parent, final FUIContainer container) {
 			addClickListener(new ClickListener() {
 				public void onClick(Widget sender) {
 					// Action to add exercise type to My Workout
@@ -178,7 +179,7 @@ public class BuilderItem extends HorizontalPanel {
 	}
 
 	private class UpButton extends PushButton {
-		UpButton(final Widget parent, final FUIContainer container) {
+		UpButton(final BuilderItem parent, final FUIContainer container) {
 			addClickListener(new ClickListener() {
 				public void onClick(Widget sender) {
 					container.getWorkoutBuilderPanel().shiftItemUp(parent);
@@ -188,12 +189,12 @@ public class BuilderItem extends HorizontalPanel {
 			setTabIndex(-1);
 			// TODO: Create new style
 //			addStyleName("exercise-selector-panel-element-move");
-			addStyleName("move");
+			addStyleName("up");
 		}
 	}
 
 	private class DownButton extends PushButton {
-		DownButton(final Widget parent, final FUIContainer container) {
+		DownButton(final BuilderItem parent, final FUIContainer container) {
 			addClickListener(new ClickListener() {
 				public void onClick(Widget sender) {
 					container.getWorkoutBuilderPanel().shiftItemDown(parent);

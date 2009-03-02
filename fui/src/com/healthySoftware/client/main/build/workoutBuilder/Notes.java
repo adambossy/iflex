@@ -4,8 +4,9 @@ import com.google.gwt.user.client.ui.TextBox;
 
 public class Notes extends TextBox {
 	
-	Notes() {
+	Notes(String defaultNotes) {
 		super();
+		this.setText(defaultNotes);
 		this.addStyleName("notes");
 	}
 	

@@ -50,7 +50,7 @@ public class ExerciseItem extends HorizontalPanel {
 				public void onClick(Widget sender) {
 					// Action to add exercise type to My Workout
 					// TODO: Copy attributes from previous workout
-					container.getWorkoutBuilderPanel().addItem(id, name, container);
+					container.getWorkoutBuilderPanel().addItem(container, id, name);
 				}
 			});
 			setHTML(new HTML("[+]").toString());

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="com/healthySoftware/client/main/build/workoutBuilder/WorkoutBuilderPanelBackup.java|com/healthySoftware/client/main/build/workoutBuilder/BuilderItemBackup.java|com/healthySoftware/client/main/build/workoutBuilder/BuilderItemDAOBackup.java" kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/Users/adambossy/Documents/workspace/gwt-mac-1.5.3/gwt-user.jar"/>

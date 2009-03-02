@@ -151,56 +151,55 @@ margin: 0.1em 0.1em 0 0.1em; */ /* width: 100%; */
 	border-bottom: 1px solid #000;
 }
 
-.workout-builder-panel-reps {
-	margin: 0 0.1em;
-}
-
-.workout-builder-panel-reps {
-	width: 4em;
-}
-
-.workout-builder-panel-tempo,
-.workout-builder-panel .rest {
-	width: 5em;
-	margin: 0 0.1em;
-}
-
-.workout-builder-panel-element,.workout-builder-panel-heading {
-	/*  padding: 0.1em 0.1em 0 0.1em;
-  margin: 0.1em 0.1em 0 0.1em; */
-/*	border: 1px solid blue;*/
-}
-
 .workout-builder-panel-heading {
 	background-color: #87B3FF; /* bright blue */
 }
 
-.workout-builder-panel-element {
-	width: 100%;
-	padding: 0.4em;
-/*	background-color: #B387FF; /* purple */
+.workout-builder-panel .thumbnail {
+	margin: 1em;
 }
 
+.workout-builder-panel .reps-text-box {
+	width: 4em;
+}
+
+/*
 .workout-builder-panel-element-label {
 	width: 100%;
-	/*  min-width: 200px; */ /*  width: 230px; */
 }
-
+*/
 .workout-builder-panel .reps-label,
 .workout-builder-panel .rest-label,
 .workout-builder-panel .notes-label {
-	font-size: 0.5em;	
+	font-size: 0.8em;	
 }
 
 .workout-builder-panel-element-label,
 .workout-builder-panel-element-input {
-	margin: 16px 0 16px 1em;
+	margin: 16px 0 16px 0;
 }
 
-.workout-builder-panel .delete {
-	width: 32px;
+.workout-builder-panel .reps-container,
+.workout-builder-panel .delete,
+.workout-builder-panel .notes {
+	margin-right: 1em;
 }
 
+.workout-builder-panel .reps-container,
+.workout-builder-panel .delete,
+.workout-builder-panel .notes,
+.workout-builder-panel .up,
+.workout-builder-panel .down {
+	margin-top: 1em;
+}
+
+.workout-builder-panel .rest, 
+.workout-builder-panel .notes {
+	margin-top: 2em;
+}
+	
+
+/*
 .workout-builder-panel .reps-label {
 	width: 102px;
 }
@@ -212,17 +211,8 @@ margin: 0.1em 0.1em 0 0.1em; */ /* width: 100%; */
 .workout-builder-panel .notes-label {
 	width: 233px;
 }
-
-.workout-builder-panel .add {
-	width: 32px;
-}
-
 .workout-builder-panel .rest {
 	width: 48px;
-}
-
-.workout-builder-panel .reps-container {
-	width: 80px;
 }
 
 .workout-builder-panel .up {
@@ -240,13 +230,13 @@ margin: 0.1em 0.1em 0 0.1em; */ /* width: 100%; */
 .workout-builder-panel .notes {
 	width: 225px;
 }
-
+*/
 .workout-builder-panel-placeholder {
 	width: 100%;
 }
 
 /** Print button */
-	/* TODO: Change to superclass element that all control panel elements inherit from */
+/* TODO: Change to superclass element that all control panel elements inherit from */
 .style-orange .button {
 	color: #fda463;
 }

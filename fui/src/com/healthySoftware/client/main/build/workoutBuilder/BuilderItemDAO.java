@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class BuilderItemDAO {
 
-	final private BuilderItem parent;
+//	final private BuilderItem parent;
 	
 	private int typeId;
 	private String exerciseName;
@@ -15,7 +15,24 @@ public class BuilderItemDAO {
 //	private String tempo;
 	private String rest;
 	private String notes;
-	
+
+	public BuilderItemDAO (
+			int typeId,
+			String exerciseName,
+			String[] warmupReps,
+			String[] workoutReps,
+			String rest,
+			String notes)
+	{
+		// Currently calling exercise type identifier "exerciseName" to denote that it's a string, not yet a database id
+		this.typeId = typeId;
+		this.exerciseName = exerciseName;
+		this.warmupReps = warmupReps;
+		this.workoutReps = workoutReps;
+		this.rest = rest;
+		this.notes = notes;
+	}
+/*	
 	public BuilderItemDAO (
 			int typeId,
 			String exerciseName,
@@ -36,7 +53,7 @@ public class BuilderItemDAO {
 		this.parent = parent;
 		this.notes = notes;
 	}
-
+*/
 	/**
 	 * All the method in this class are protected so that we enforce limited access of getters and setters so that BuilderItem has
 	 * to access them instead of other classes (e.g. SaveAction). 
@@ -88,11 +105,11 @@ public class BuilderItemDAO {
 	void setRest(String rest) {
 		this.rest = rest;
 	}
-
+/*
 	public BuilderItem getParent() {
 		return parent;
 	}
-
+*/
 	String getNotes() {
 		return notes;
 	}
