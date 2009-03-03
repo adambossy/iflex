@@ -20,7 +20,7 @@ public class RepsContainer extends HorizontalPanel {
 		else
 			repsList.add(new Reps(repsList, null));
 		super.add(repsList);
-		super.add(new AddRepsButton(repsList  , container));
+		super.add(new AddRepsButton(repsList, container));
 		addStyleName("reps-container");
 	}
 	
@@ -51,7 +51,9 @@ public class RepsContainer extends HorizontalPanel {
 					parent.add(new Reps(parent, parent.getLastReps()));
 				}
 			});
-			setHTML(new HTML("[+]").toString());
+//			setHTML(new HTML("[+]").toString());
+			setHTML("<img src=\"http://localhost:8000/media/images/icons/add.png\" />");
+			addStyleName("add-reps");
 			setTabIndex(-1);
 		}
 	}

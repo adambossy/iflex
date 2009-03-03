@@ -171,7 +171,8 @@ public class BuilderItem extends BuilderItemDAO /*HorizontalPanel */ {
 					container.getWorkoutBuilderPanel().deleteItem(parent);
 				}
 			});
-			setHTML(new HTML("[x]").toString());
+//			setHTML(new HTML("[x]").toString());
+			setHTML("<img src=\"http://localhost:8000/media/images/icons/delete.png\" />");
 			setTabIndex(-1);
 			// TODO: Create new style
 			addStyleName("delete");
@@ -185,7 +186,8 @@ public class BuilderItem extends BuilderItemDAO /*HorizontalPanel */ {
 					container.getWorkoutBuilderPanel().shiftItemUp(parent);
 				}
 			});
-			setHTML(new HTML("[^]").toString());
+//			setHTML(new HTML("[^]").toString());
+			setHTML("<img src=\"http://localhost:8000/media/images/icons/arrow_up.png\" />");
 			setTabIndex(-1);
 			// TODO: Create new style
 //			addStyleName("exercise-selector-panel-element-move");
@@ -200,7 +202,8 @@ public class BuilderItem extends BuilderItemDAO /*HorizontalPanel */ {
 					container.getWorkoutBuilderPanel().shiftItemDown(parent);
 				}
 			});
-			setHTML(new HTML("[v]").toString());
+//			setHTML(new HTML("[v]").toString());
+			setHTML("<img src=\"http://localhost:8000/media/images/icons/arrow_down.png\" />");
 			setTabIndex(-1);
 			// TODO: Create new style
 //			addStyleName("exercise-selector-panel-element-add");

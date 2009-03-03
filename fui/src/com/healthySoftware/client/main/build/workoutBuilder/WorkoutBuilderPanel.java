@@ -71,11 +71,11 @@ public class WorkoutBuilderPanel extends FlexTable {
 		exerciseList = new ArrayList<BuilderItem>();
 
 		// TODO Format the heading properly; probably not necessary until the first item is added
-		cellFormatter.setColSpan(0, 0, 2);
-		cellFormatter.setWidth(0, 0, "100%");
+		cellFormatter.setColSpan(0, 0, 5);
+//		cellFormatter.setWidth(0, 0, "100%");
 		cellFormatter.setColSpan(0, 1, 1);
 		cellFormatter.setColSpan(0, 2, 1);
-		cellFormatter.setColSpan(0, 3, 4);
+		cellFormatter.setColSpan(0, 3, 2);
 		cellFormatter.setColSpan(0, 4, 1);
 	}
 
@@ -139,22 +139,26 @@ public class WorkoutBuilderPanel extends FlexTable {
 		
 		HTML type = new HTML(item.getExerciseName()); // index = 0;
 		type.addStyleName("workout-builder-panel-element-label");
-		getCellFormatter().setWidth(row, 1, "100%");
+//		getCellFormatter().setWidth(row, 1, "100%");
 		setWidget(row, 1, type);
 
+		setWidget(row, 2, item.getUpButton());
+		setWidget(row, 3, item.getDownButton());
+
+		setWidget(row, 4, new HTML("&nbsp;"));
+//		getCellFormatter().setWidth(row, 4, "100%");
+
 		/* TODO: divide sets, reps, tempo, rest, into mini-subclasses */
-		setWidget(row, 2, item.getWarmupRepsContainerWidget());
-		setWidget(row, 3, item.getWorkoutRepsContainerWidget());
+		setWidget(row, 5, item.getWarmupRepsContainerWidget());
+		setWidget(row, 6, item.getWorkoutRepsContainerWidget());
 
-		setWidget(row, 4, item.getRestWidget());
+		setWidget(row, 7, item.getRestWidget());
 
-		setWidget(row, 5, item.getUpButton());
-		setWidget(row, 6, item.getDownButton());
-		setWidget(row, 7, item.getDeleteButton());
+		setWidget(row, 8, item.getDeleteButton());
 		
-		setWidget(row, 8, item.getNotesWidget());
+		setWidget(row, 9, item.getNotesWidget());
 		
-		for (int i = 0; i < 9; i++) { 
+		for (int i = 0; i < 10; i++) { 
 			getCellFormatter().setVerticalAlignment(row, i, HasVerticalAlignment.ALIGN_TOP);
 		}
 	}

@@ -14,9 +14,10 @@ public class InitTemplateEditorServiceImpl extends DjangoService {
 	
 	private String path = "/template_editor/init";
 
-	private ServicePopulator servicePopulatorInstance = new InitTemplateEditorServicePopulator(); 
+//	private ServicePopulator servicePopulatorInstance = new InitTemplateEditorServicePopulator();
+	private ServicePopulator servicePopulatorInstance;
 
-	// Make a constructor for this?
+	// Make a constructor for this? Nay; should not be changed at runtime
 	public void setServicePopulatorInstance(ServicePopulator servicePopulatorInstance) {
 		this.servicePopulatorInstance = servicePopulatorInstance; 
 	}

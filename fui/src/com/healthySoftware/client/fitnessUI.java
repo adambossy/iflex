@@ -70,8 +70,8 @@ public class fitnessUI implements EntryPoint, ServicePopulator {
 		// getJson(jsonRequestId++, url, this, container);
 	}
 
-	// public void populateTemplateEditor(JSONObject json, FUIContainer
-	// container) {
+	// TODO Put this function in InitTemplateEditorServicePopulator.java and make that class a 
+	// subclass of this one?
 	public void execute(String jsonArray, FUIContainer container) {
 		glassPanel.hide();
 		loading.hide();

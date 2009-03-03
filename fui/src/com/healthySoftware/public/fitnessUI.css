@@ -133,7 +133,12 @@ margin: 0.1em 0.1em 0 0.1em; */ /* width: 100%; */
 }
 */
 
-.exercise-selector-panel-element-add {
+.exercise-selector-panel-element .add,
+.reps .delete,
+.reps-container .add-reps,
+.workout-builder-panel .up, 
+.workout-builder-panel .down, 
+.workout-builder-panel .delete {
 	/*  width: 16px; Hard-coded into ExerciseItem.java */
 	background: none;
 	border: none;	

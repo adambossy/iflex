@@ -24,6 +24,8 @@ public class Reps extends HorizontalPanel { // RepsTextBox {
 					parent.remove(self);
 			}
 		});
+		delete.setHTML("<img src=\"http://localhost:8000/media/images/icons/delete.png\" />");
+		delete.addStyleName("delete");
 		delete.setTabIndex(-1);
 		delete.setText("x");
 		

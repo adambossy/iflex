@@ -39,7 +39,7 @@ public class ExerciseItem extends HorizontalPanel {
 		// TODO: Make the entire HorizontalPanel a PushButton
 		AddButton addButton; 
 		add(addButton = new AddButton(id, name, container));
-		addButton.setHTML("<img src=\"http://localhost:8000/media/images/icons/add.png\" />");
+//		addButton.setHTML("<img src=\"http://localhost:8000/media/images/icons/add.png\" />");
 		setCellVerticalAlignment(addButton, HorizontalPanel.ALIGN_MIDDLE);
 		setCellWidth(addButton, "32px");
 	}
@@ -53,8 +53,12 @@ public class ExerciseItem extends HorizontalPanel {
 					container.getWorkoutBuilderPanel().addItem(container, id, name);
 				}
 			});
-			setHTML(new HTML("[+]").toString());
-			addStyleName("exercise-selector-panel-element-add");
+//			setHTML(new HTML("[+]").toString());
+			setHTML("<img src=\"http://localhost:8000/media/images/icons/add.png\" />");
+			// Should be subclass under class .exercise-item in CSS. TODO Convention SHOULD be:
+			// .<className> .<styleName>
+			// Keeps it more concise and general
+			addStyleName("add");
 		}
 	}
 }
