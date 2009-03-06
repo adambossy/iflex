@@ -58,35 +58,35 @@ public class BuilderItemDAO {
 	 * All the method in this class are protected so that we enforce limited access of getters and setters so that BuilderItem has
 	 * to access them instead of other classes (e.g. SaveAction). 
 	 */
-	String getExerciseName() {
+	public String getExerciseName() {
 		return this.exerciseName;
 	}
 	
-	void setExerciseName(String exerciseName) {
+	public void setExerciseName(String exerciseName) {
 		this.exerciseName = exerciseName;
 	}
 
-	int getTypeId() {
+	public int getTypeId() {
 		return typeId;
 	}
 
-	void setTypeId(int typeId) {
+	public void setTypeId(int typeId) {
 		this.typeId = typeId;
 	}
 
-	String[] getWarmupReps() {
+	public String[] getWarmupReps() {
 		return warmupReps;
 	}
 
-	void setWarmupReps(String[] warmupReps) {
+	public void setWarmupReps(String[] warmupReps) {
 		this.warmupReps = warmupReps;
 	}
 
-	String[] getWorkoutReps() {
+	public String[] getWorkoutReps() {
 		return workoutReps;
 	}
 
-	void setWorkoutReps(String[] workoutReps) {
+	public void setWorkoutReps(String[] workoutReps) {
 		this.workoutReps = workoutReps;
 	}
 /*
@@ -98,11 +98,11 @@ public class BuilderItemDAO {
 		this.tempo = tempo;
 	}
 */
-	String getRest() {
+	public String getRest() {
 		return rest;
 	}
 
-	void setRest(String rest) {
+	public void setRest(String rest) {
 		this.rest = rest;
 	}
 /*
@@ -110,11 +110,11 @@ public class BuilderItemDAO {
 		return parent;
 	}
 */
-	String getNotes() {
+	public String getNotes() {
 		return notes;
 	}
 
-	void setNotes(String notes) {
+	public void setNotes(String notes) {
 		this.notes = notes;
 	}
 

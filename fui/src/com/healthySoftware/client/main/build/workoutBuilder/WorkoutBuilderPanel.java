@@ -16,7 +16,7 @@ import com.healthySoftware.client.FUIContainer;
 public class WorkoutBuilderPanel extends FlexTable {
 
 	// TODO: Keeping this as a list may be intuitive
-	ArrayList<BuilderItem> exerciseList;
+	ArrayList<BuilderItemDAO> exerciseList;
 	
 	public WorkoutBuilderPanel(FUIContainer container) {
 		// Abstract loop away to a superclass object or make the code inside the
@@ -68,10 +68,10 @@ public class WorkoutBuilderPanel extends FlexTable {
 		// TODO: Should container be a global? There are no instances when we
 		// would access a different "container"
 
-		exerciseList = new ArrayList<BuilderItem>();
+		exerciseList = new ArrayList<BuilderItemDAO>();
 
 		// TODO Format the heading properly; probably not necessary until the first item is added
-		cellFormatter.setColSpan(0, 0, 5);
+		cellFormatter.setColSpan(0, 0, 4);
 //		cellFormatter.setWidth(0, 0, "100%");
 		cellFormatter.setColSpan(0, 1, 1);
 		cellFormatter.setColSpan(0, 2, 1);
@@ -86,7 +86,7 @@ public class WorkoutBuilderPanel extends FlexTable {
 		// TODO: Focus on newly built workout item when it is created? (for ease-of-use)
 		// TODO: Allow strings and ranges to be input into any of these fields
 		if (this.exerciseList.size() > 0) {
-			BuilderItem item = this.getLastItem();
+			BuilderItemDAO item = this.getLastItem();
 			addItem(container,
 					id,
 					name,
@@ -100,7 +100,7 @@ public class WorkoutBuilderPanel extends FlexTable {
 			addItem(container, id, name, null, null, null, null);
 	}
 
-	public BuilderItem getLastItem() {
+	public BuilderItemDAO getLastItem() {
 		return this.exerciseList.get(this.exerciseList.size()-1);
 	}
 	
@@ -140,25 +140,25 @@ public class WorkoutBuilderPanel extends FlexTable {
 		HTML type = new HTML(item.getExerciseName()); // index = 0;
 		type.addStyleName("workout-builder-panel-element-label");
 //		getCellFormatter().setWidth(row, 1, "100%");
-		setWidget(row, 1, type);
+		setWidget(row, 1, item.getUpButton());
+		setWidget(row, 2, item.getDownButton());
 
-		setWidget(row, 2, item.getUpButton());
-		setWidget(row, 3, item.getDownButton());
+		setWidget(row, 3, type);
 
-		setWidget(row, 4, new HTML("&nbsp;"));
-//		getCellFormatter().setWidth(row, 4, "100%");
+//		setWidget(row, 4, new HTML("&nbsp;"));
+		getCellFormatter().setWidth(row, 3, "100%");
 
 		/* TODO: divide sets, reps, tempo, rest, into mini-subclasses */
-		setWidget(row, 5, item.getWarmupRepsContainerWidget());
-		setWidget(row, 6, item.getWorkoutRepsContainerWidget());
+		setWidget(row, 4, item.getWarmupRepsContainerWidget());
+		setWidget(row, 5, item.getWorkoutRepsContainerWidget());
 
-		setWidget(row, 7, item.getRestWidget());
+		setWidget(row, 6, item.getRestWidget());
 
-		setWidget(row, 8, item.getDeleteButton());
+		setWidget(row, 7, item.getDeleteButton());
 		
-		setWidget(row, 9, item.getNotesWidget());
+		setWidget(row, 8, item.getNotesWidget());
 		
-		for (int i = 0; i < 10; i++) { 
+		for (int i = 0; i < 9; i++) { 
 			getCellFormatter().setVerticalAlignment(row, i, HasVerticalAlignment.ALIGN_TOP);
 		}
 	}
@@ -207,7 +207,7 @@ public class WorkoutBuilderPanel extends FlexTable {
 		return -1;
 	}
 	
-	public ArrayList<BuilderItem> getExerciseList() {
+	public ArrayList<BuilderItemDAO> getExerciseList() {
 		return this.exerciseList;
 	}
 	

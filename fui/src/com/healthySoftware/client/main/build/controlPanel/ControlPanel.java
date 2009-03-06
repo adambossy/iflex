@@ -2,6 +2,7 @@ package com.healthySoftware.client.main.build.controlPanel;
 
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.healthySoftware.client.FUIContainer;
+import com.healthySoftware.client.fitnessUI;
 import com.healthySoftware.client.main.build.controlPanel.load.LoadAction;
 import com.healthySoftware.client.main.build.controlPanel.save.SaveAction;
 import com.healthySoftware.client.main.build.controlPanel.save.SaveButton;
@@ -22,7 +23,8 @@ public class ControlPanel extends HorizontalPanel {
 	// Called by FUIContainer->TabContainer->BuildTab->ControlPanel
 	// TODO: Having a pointer to the parent may be useful
 	public ControlPanel (FUIContainer container) {
-		add(printButton = new PrintButton());
+		// TODO: Can make a shortcut to exerciseList if I pass in TemplateProperties instead; EDIT: Is a global template properties a hack?
+		add(printButton = new PrintButton(container)); //fitnessUI.properties.getExerciseList()));
 		saveAction = new SaveAction(container);
 		add(saveAction.getSaveButton());
 		add(saveAction.getSaveAsButton());

@@ -8,6 +8,7 @@ import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.healthySoftware.client.util.GlassPanel;
+import com.healthySoftware.client.util.models.template_editor.WorkoutTemplateList;
 import com.healthySoftware.client.util.services.ServicePopulator;
 import com.healthySoftware.client.util.services.template_editor.InitTemplateEditorServiceImpl;
 

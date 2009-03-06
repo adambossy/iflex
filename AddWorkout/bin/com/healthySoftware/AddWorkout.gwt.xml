@@ -20,6 +20,6 @@
       <!-- Specify the application specific style sheet.              -->
       <stylesheet src='AddWorkout.css' />
 	
-	  <servlet path="/fetch/" class="com.healthySoftware.server.MyLoadWorkoutServiceImpl" />	
+<!-- 	  <servlet path="/fetch/" class="com.healthySoftware.server.MyLoadWorkoutServiceImpl" /> -->	
 	
 </module>

@@ -56,7 +56,7 @@ public class SaveDialog extends DialogBox {
 		saveButton.addClickListener(new ClickListener() {
 			public void onClick(Widget sender) {
 				fitnessUI.properties.setTemplateName(self.name.getText());
-				saveAction.saveTemplate(container);
+//				saveAction.saveTemplate(container);
 				self.hide();
 			}
 		});

@@ -51,6 +51,8 @@ public class fitnessUITest extends GWTTestCase {
 		
 		wtList = new WorkoutTemplateList("[{\"pk\": 1, \"model\": \"template_editor.workouttemplate\", \"fields\": {\"position\": 2, \"author\": 1, \"name\": \"null\", \"collection\": null, \"description\": null}}]");
 
+		System.out.println("wtList: " + wtList);
+		
 		Assert.assertEquals(wtList.get(0).getPk(), 1);
 		Assert.assertEquals(wtList.get(0).getName(), null);
 //		Assert.assertEquals(wtList.get(0).getAuthor(), 1);

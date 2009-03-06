@@ -22,7 +22,7 @@ public class SaveButton extends Button {
 		addClickListener(new ClickListener() {
 			public void onClick(Widget sender) {
 				if (fitnessUI.properties.isSaved())
-					saveAction.saveTemplate(container);
+					; //saveAction.saveTemplate(container);
 				else {
 					saveAction.getSaveDialog().center();
 					saveAction.getSaveDialog().show();

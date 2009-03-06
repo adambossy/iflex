@@ -13,8 +13,10 @@ import com.google.gwt.user.client.Window;
 import com.healthySoftware.client.FUIContainer;
 import com.healthySoftware.client.fitnessUI;
 import com.healthySoftware.client.main.build.workoutBuilder.BuilderItem;
+import com.healthySoftware.client.main.build.workoutBuilder.BuilderItemDAO;
 import com.healthySoftware.client.util.AJAXObject;
 import com.healthySoftware.client.util.Constants;
+import com.healthySoftware.client.util.models.template_editor.WorkoutTemplate;
 
 public class SaveAction extends AJAXObject {
 
@@ -124,7 +126,15 @@ public class SaveAction extends AJAXObject {
 //			}
 //		};
 //	}
-
+	public void saveTemplate(FUIContainer container) {
+		List<BuilderItemDAO> exerciseList = fitnessUI.properties.getExerciseList();
+		
+		for (BuilderItemDAO exercise: exerciseList) {
+			WorkoutTemplate workoutTemplate = WorkoutTemplate.fromJSONString("{}"); 
+			
+		}
+	}
+/*
 	public void saveTemplate(FUIContainer container) {
 		String url = (Constants.LOCAL ? Constants.LOCAL_URL_ROOT : Constants.WEB_URL_ROOT) + JSON_URL;
 		String templateStream = serializeTemplate(
@@ -136,11 +146,12 @@ public class SaveAction extends AJAXObject {
 //		getJson(jsonRequestId++, url, container.getControlPanel().getSaveAction(), container);
 		getJson(jsonRequestId++, url, this, container);
 	}
-	
+*/	
 	/**
 	 * @return a String containing the serialized json in a format the can be read as a URL
 	 */
-	private String serializeTemplate(List<BuilderItem> exerciseList, String name) {//, String position, String collection) {
+/*	
+	private String serializeTemplate(List<BuilderItemDAO> exerciseList, String name) {//, String position, String collection) {
 		JSONObject json = new JSONObject();
 		json.put("exercise_list", serializeExerciseList(exerciseList));
 //		json.put("metadata", serializeMetadata(name, position, collection));
@@ -153,7 +164,7 @@ public class SaveAction extends AJAXObject {
 				+ (fitnessUI.properties.getTemplateId() == -1 ? "" : "&workout_template_id="+fitnessUI.properties.getTemplateId())
 				).replace(" ", "");
 	}
-	
+*/
 	/**
 	 * 
 	 * @param exerciseList

@@ -12,7 +12,7 @@ public class Constants {
 	public static boolean LOCAL = true;
 	
 	// Determines whether services should be mocked (fakeRequest()) or actually made
-	public static boolean DEBUG = false;
+	public static boolean DEBUG = true;
 
 	public static boolean REFLECTION = false;
 	

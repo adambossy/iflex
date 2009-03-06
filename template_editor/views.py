@@ -267,6 +267,9 @@ def service_load_lift_templates(request):
 # Nested relations/fields/exclude/etc
 # >>> print serializers.serialize('json', lt, relations={'type': {'relations':('primary_muscle',),'exercise_template':{}}}, indent=4)                    
 
+""" TODO Decorator: compile_gwt_response 
+         Decorator: serializers.serialize
+         Decorator: if/else wrapping the entire thing, if possible? """
 def service_load_workout_template(request):
     if 'workout_template_id' in request.GET:
         return compile_gwt_response(request,

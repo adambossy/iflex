@@ -37,7 +37,7 @@ public class AddWorkoutServicePopulator implements ServicePopulator {
 		
 		for (LiftTemplate liftTemplate: workoutTemplate.getLiftTemplateList().getList()) {
 			ExercisePanel exercisePanel = new ExercisePanel(liftTemplate, parentPanel);
-			
+			System.out.println ("LiftTemplate: " + liftTemplate.toString());
 			parentPanel.add(exercisePanel);
 		}
 		

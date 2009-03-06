@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.google.gwt.user.client.ui.DialogBox;
 import com.healthySoftware.client.main.build.workoutBuilder.BuilderItem;
+import com.healthySoftware.client.main.build.workoutBuilder.BuilderItemDAO;
 import com.healthySoftware.client.util.GlassPanel;
 
 // TODO Should be a singleton
@@ -17,13 +18,13 @@ public class TemplateProperties {
 	
 //	private boolean isSaved = false;
 	
-	private List<BuilderItem> exerciseList = null;
+	private List<BuilderItemDAO> exerciseList = null;
 
 //	DialogBox loading;
 	
 //	GlassPanel glassPanel;
 
-	TemplateProperties(FUIContainer container, String templateName, /*boolean isSaved,*/ List<BuilderItem> exerciseList) {
+	TemplateProperties(FUIContainer container, String templateName, /*boolean isSaved,*/ List<BuilderItemDAO> exerciseList) {
 		this.container = container;
 		this.templateName = templateName;
 //		this.isSaved = isSaved;
@@ -70,12 +71,12 @@ public class TemplateProperties {
 //		this.isSaved = isSaved;
 //	}
 
-	public List<BuilderItem> getExerciseList() {
-		setExerciseList(container.getWorkoutBuilderPanel().getExerciseList());
+	public List<BuilderItemDAO> getExerciseList() {
+//		setExerciseList(container.getWorkoutBuilderPanel().getExerciseList());
 		return exerciseList;
 	}
 
-	private void setExerciseList(List<BuilderItem> exerciseList) {
+	private void setExerciseList(List<BuilderItemDAO> exerciseList) {
 		this.exerciseList = exerciseList;
 	}
 }
